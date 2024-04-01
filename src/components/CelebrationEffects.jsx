@@ -1,21 +1,56 @@
 // CelebrationEffects.js
 import "../styles/CelebrationEffects.css";
+import { useState, useEffect } from "react";
+import ReactConfetti from "react-confetti";
+const CelebrationEffects = () => {
+  const [dimension, setDimension] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  const [confettiVisibility, setConfettiVisibility] = useState(true);
 
-function CelebrationEffects() {
+  const [opacity, setOpacity] = useState(1);
+  const detectSize = () => {
+    setDimension({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", detectSize);
+
+    return () => {
+      window.removeEventListener("resize", detectSize);
+    };
+  }, [dimension]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setConfettiVisibility(false);
+    }, 6000);
+    const opacityTimer = setInterval(() => {
+      setOpacity((prev) => prev - 0.1);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+      clearInterval(opacityTimer);
+    };
+  }, []);
   return (
-    <div style={{
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: '100vw',
-      height: '100vh',
-        
-    }}>
-      {/* Add celebration effects like fireworks */}
-      Celebration Effects
-    </div>
+    <>
+      {confettiVisibility && (
+        <ReactConfetti
+          width={dimension.width}
+          height={dimension.height}
+          tweenDuration={5000}
+          run={true}
+          opacity={opacity}
+        />
+      )}
+    </>
   );
-}
+};
 
 export default CelebrationEffects;
