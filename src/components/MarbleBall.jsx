@@ -5,8 +5,6 @@ import "../styles/MarbleBall.css";
 function MarbleBall({ onAnimationEnd }) {
   return (
     <div className="marble" onAnimationEnd={onAnimationEnd}>
-      {/* Marble ball */}
-      Marble
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import "../styles/EmployeeCard.css";
 import employees from "../sampleData.json";
 import EmployeeAnniversaryCard from "./EmployeeAnniversaryCard.jsx";
-
+import { Box, Typography } from "@mui/material";
 function Employees({ addMarble }) {
   const handleAddMarble = (employee) => {
     console.log(`Adding marble for ${employee.fullName}`);
@@ -36,16 +36,22 @@ function Employees({ addMarble }) {
 
   return (
     <div>
-      <h1>Upcoming Work anniversaries</h1>
+      <Box>
+        <Typography
+          sx={{ fontSize: "1.5rem", fontWeight: 600, textAlign: "center" }}
+        >
+          Upcoming Work anniversaries
+        </Typography>
+      </Box>
       <div
         style={{
           maxHeight: "70vh",
           overflowY: "scroll",
-          display:'flex',
-          flexWrap:'wrap',
-          padding:'1rem 1rem',
-          columnGap:'1rem',
-          rowGap:'2rem'
+          display: "flex",
+          flexWrap: "wrap",
+          padding: "1rem 1rem",
+          columnGap: "1rem",
+          rowGap: "2rem",
         }}
       >
         {filteredEmployees.map((employee) => (

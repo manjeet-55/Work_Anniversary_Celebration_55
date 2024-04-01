@@ -1,24 +1,40 @@
 /* MarbleBall.css */
 .marble {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: #ccc; /* Marble color */
-    border-radius: 50%;
-    /* Define animation */
-    animation: drop-marble 1s forwards;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  /* Gradient background */
+  background: radial-gradient(circle, #ff00ff, #ed16fa);
+  /* Add shadow for depth */
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+  /* Define animation */
+  animation: drop-marble 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards,
+    rotate-marble 1.5s linear forwards;
+}
+
+@keyframes drop-marble {
+  0% {
+    top: 10%;
+    left: 25%;
   }
-  
-  @keyframes drop-marble {
-    0% {
-      /* Start position */
-      top: 0;
-      left: 0;
-    }
-    100% {
-      /* End position */
-      top: 200px; /* Adjust based on the jar position */
-      left: 50%; /* Adjust based on the jar position */
-    }
+  30% {
+    top: 35%;
+    left: 15%;
+    transform: translateY(-20px);
   }
-  
+
+  100% {
+    top: 75%;
+    left: 17%;
+  }
+}
+
+@keyframes rotate-marble {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
