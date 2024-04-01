@@ -33,7 +33,6 @@ function App() {
       <div
         style={{
           width: "50%",
-          background: "lightpink",
           display: "flex",
           justifyContent: "center",
         }}
@@ -43,12 +42,12 @@ function App() {
       <div
         style={{
           width: "50%",
-          background: "lightblue",
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Employees />
+        <Employees addMarble={addMarble}/>
       </div>
     </div>
   );

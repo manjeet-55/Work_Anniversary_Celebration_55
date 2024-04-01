@@ -31,7 +31,7 @@ const CelebrationEffects = () => {
     }, 6000);
     const opacityTimer = setInterval(() => {
       setOpacity((prev) => prev - 0.1);
-    }, 500);
+    }, 800);
 
     return () => {
       clearTimeout(timer);
