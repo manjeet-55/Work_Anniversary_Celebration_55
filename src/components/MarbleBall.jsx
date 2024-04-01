@@ -32,9 +32,10 @@
 //     ></div>
 //   );
 // };
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import "../styles/MarbleBall.css";
+import { marbelBallsInOneRow, marbelBallSize } from "../utils/constants";
 
 export const MarbleBall = ({ index, totalMarbles, marbleDrop }) => {
   const spacing = 42;
@@ -42,8 +43,16 @@ export const MarbleBall = ({ index, totalMarbles, marbleDrop }) => {
   const controls = useAnimation();
 
   const [position, setPosition] = useState({
-    top: 400 - Math.floor(index / 7) * spacing + Math.random() * turbulence - turbulence / 2,
-    left: 20 + (index % 7) * spacing + Math.random() * turbulence - turbulence / 2,
+    top:
+      400 -
+      Math.floor(index / marbelBallsInOneRow) * spacing +
+      Math.random() * turbulence -
+      turbulence / 2,
+    left:
+      20 +
+      (index % marbelBallsInOneRow) * spacing +
+      Math.random() * turbulence -
+      turbulence / 2,
   });
 
   const [animationStarted, setAnimationStarted] = useState(false);
@@ -62,11 +71,16 @@ export const MarbleBall = ({ index, totalMarbles, marbleDrop }) => {
 
   return (
     <motion.div
-      className='marble'
       style={{
-        position: 'absolute',
+        position: "absolute",
         top: position.top,
         left: position.left,
+        height: marbelBallSize,
+        width: marbelBallSize,
+        borderRadius: "50%",
+        zIndex: 999,
+        background: "radial-gradient(circle, #ff00ff, #ed16fa)",
+        boxShadow: "0px 3px 4px rgba(0, 0, 0, 0.2)",
       }}
       animate={controls}
     ></motion.div>

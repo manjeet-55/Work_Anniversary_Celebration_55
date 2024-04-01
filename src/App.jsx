@@ -8,7 +8,7 @@ import {
 } from "./components";
 function App() {
   const [marbleDropped, setMarbleDropped] = useState(false);
-  const [numberOfMarbles, setNumberOfMarbles] = useState(56);
+  const [numberOfMarbles, setNumberOfMarbles] = useState(50);
 
   const addMarble = () => {
     setMarbleDropped(true);
