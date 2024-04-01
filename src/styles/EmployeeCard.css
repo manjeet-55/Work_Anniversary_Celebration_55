@@ -1,0 +1,12 @@
+/* EmployeeCard.css */
+.employee-card {
+  position: relative;
+  margin: 10px;
+}
+
+.add-marble-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

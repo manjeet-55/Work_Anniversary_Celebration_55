@@ -1,0 +1,24 @@
+/* MarbleBall.css */
+.marble {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ccc; /* Marble color */
+    border-radius: 50%;
+    /* Define animation */
+    animation: drop-marble 1s forwards;
+  }
+  
+  @keyframes drop-marble {
+    0% {
+      /* Start position */
+      top: 0;
+      left: 0;
+    }
+    100% {
+      /* End position */
+      top: 200px; /* Adjust based on the jar position */
+      left: 50%; /* Adjust based on the jar position */
+    }
+  }
+  
