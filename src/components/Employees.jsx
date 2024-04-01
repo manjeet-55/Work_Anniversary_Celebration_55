@@ -1,10 +1,9 @@
 import "../styles/EmployeeCard.css";
 import employees from "../sampleData.json";
-import EmployeeAnniversaryCard from "./EmployeeAnniversaryCard.jsx";
+import { EmployeeAnniversaryCard } from "./EmployeeAnniversaryCard.jsx";
 import { Box, Typography } from "@mui/material";
-function Employees({ addMarble }) {
+export const Employees = ({ addMarble }) => {
   const handleAddMarble = (employee) => {
-    console.log(`Adding marble for ${employee.fullName}`);
     addMarble();
   };
 
@@ -26,13 +25,12 @@ function Employees({ addMarble }) {
     ];
     return monthNames[parseInt(month) - 1];
   };
-  const currentMonth = getFullMonthName(currentDate.getMonth() + 1); // Months are zero-indexed
+  const currentMonth = getFullMonthName(currentDate.getMonth() + 1);
 
   const filteredEmployees = employees.filter((employee) => {
     const anniversaryMonth = employee.workAnniversaryDate.split(" ")[1];
     return anniversaryMonth == currentMonth;
   });
-  console.log(filteredEmployees);
 
   return (
     <div>
@@ -66,6 +64,4 @@ function Employees({ addMarble }) {
       </div>
     </div>
   );
-}
-
-export default Employees;
+};

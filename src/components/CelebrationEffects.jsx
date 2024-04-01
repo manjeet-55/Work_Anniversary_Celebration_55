@@ -1,8 +1,8 @@
-// CelebrationEffects.js
 import "../styles/CelebrationEffects.css";
 import { useState, useEffect } from "react";
 import ReactConfetti from "react-confetti";
-const CelebrationEffects = () => {
+
+export const CelebrationEffects = () => {
   const [dimension, setDimension] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -52,5 +52,3 @@ const CelebrationEffects = () => {
     </>
   );
 };
-
-export default CelebrationEffects;

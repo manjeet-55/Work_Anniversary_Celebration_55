@@ -1,5 +1,13 @@
 [
   {
+    "fullName": "Amit Jangid",
+    "email": "amit.jangid@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "20 April",
+    "workAnniversary": 8,
+    "contribution": false
+  },
+  {
     "fullName": "Yash Pancholi",
     "email": "yash.pancholi@fiftyfivetech.io",
     "location": "Jaipur",

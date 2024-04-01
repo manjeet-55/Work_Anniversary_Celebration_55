@@ -1,12 +1,74 @@
-// MarbleBall.js
+// import "../styles/MarbleBall.css";
+
+// export const MarbleBall = () => {
+//   return <div className='marble'></div>;
+// };
+
+// import React from "react";
+// import "../styles/MarbleBall.css";
+
+// export const MarbleBall = ({ index, totalMarbles }) => {
+//   const spacing = 42;
+//   const turbulence = 8;
+
+//   const position = {
+//     top:
+//       400 -
+//       Math.floor(index / 7) * spacing +
+//       Math.random() * turbulence -
+//       turbulence / 2,
+//     left:
+//       20 + (index % 7) * spacing + Math.random() * turbulence - turbulence / 2,
+//   };
+
+//   return (
+//     <div
+//       className='marble'
+//       style={{
+//         position: "absolute",
+//         top: position.top,
+//         left: position.left,
+//       }}
+//     ></div>
+//   );
+// };
+import React, { useState, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import "../styles/MarbleBall.css";
 
-// eslint-disable-next-line react/prop-types
-function MarbleBall({ onAnimationEnd }) {
-  return (
-    <div className="marble" onAnimationEnd={onAnimationEnd}>
-    </div>
-  );
-}
+export const MarbleBall = ({ index, totalMarbles, marbleDrop }) => {
+  const spacing = 42;
+  const turbulence = 8;
+  const controls = useAnimation();
 
-export default MarbleBall;
+  const [position, setPosition] = useState({
+    top: 400 - Math.floor(index / 7) * spacing + Math.random() * turbulence - turbulence / 2,
+    left: 20 + (index % 7) * spacing + Math.random() * turbulence - turbulence / 2,
+  });
+
+  const [animationStarted, setAnimationStarted] = useState(false);
+
+  useEffect(() => {
+    if (marbleDrop && !animationStarted) {
+      controls.start({
+        y: [position.top - 400, 0],
+        transition: {
+          duration: 0.5,
+        },
+      });
+      setAnimationStarted(true);
+    }
+  }, [marbleDrop, controls, animationStarted, position.top]);
+
+  return (
+    <motion.div
+      className='marble'
+      style={{
+        position: 'absolute',
+        top: position.top,
+        left: position.left,
+      }}
+      animate={controls}
+    ></motion.div>
+  );
+};

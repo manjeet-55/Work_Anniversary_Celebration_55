@@ -1,21 +1,18 @@
-// App.js
 import { useState } from "react";
 import "./App.css";
-import GlassJar from "./components/GlassJar";
-import MarbleBall from "./components/MarbleBall";
-import CelebrationEffects from "./components/CelebrationEffects";
-import Employees from "./components/Employees.jsx";
-
+import {
+  CelebrationEffects,
+  Employees,
+  GlassJar,
+  MarbleBall,
+} from "./components";
 function App() {
   const [marbleDropped, setMarbleDropped] = useState(false);
+  const [numberOfMarbles, setNumberOfMarbles] = useState(56);
 
   const addMarble = () => {
     setMarbleDropped(true);
-  };
-
-  const handleAnimationEnd = () => {
-    // Animation end logic, e.g., display celebration effects
-    console.log("Animation ended");
+    setNumberOfMarbles((prev) => prev + 1);
   };
 
   return (
@@ -29,7 +26,6 @@ function App() {
       }}
     >
       {marbleDropped && <CelebrationEffects />}
-      {marbleDropped && <MarbleBall onAnimationEnd={handleAnimationEnd} />}
       <div
         style={{
           width: "50%",
@@ -37,7 +33,10 @@ function App() {
           justifyContent: "center",
         }}
       >
-        <GlassJar />
+        <GlassJar
+          marbleDrop={marbleDropped}
+          numberOfMarbles={numberOfMarbles}
+        />
       </div>
       <div
         style={{
@@ -47,7 +46,7 @@ function App() {
           alignItems: "center",
         }}
       >
-        <Employees addMarble={addMarble}/>
+        <Employees addMarble={addMarble} />
       </div>
     </div>
   );

@@ -1,12 +1,11 @@
-
 import "../styles/EmployeeAnniversaryCard.css";
 import { Avatar, Button, Box } from "@mui/material";
-function EmployeeAnniversaryCard({
+export const EmployeeAnniversaryCard = ({
   fullName,
   location,
   onAddMarble,
   anniversaryDate,
-}) {
+}) => {
   return (
     <Box
       sx={{
@@ -66,6 +65,4 @@ function EmployeeAnniversaryCard({
       </Box>
     </Box>
   );
-}
-
-export default EmployeeAnniversaryCard;
+};
