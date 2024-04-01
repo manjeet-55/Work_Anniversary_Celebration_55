@@ -1,0 +1,106 @@
+[
+  {
+    "fullName": "Yash Pancholi",
+    "email": "yash.pancholi@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "20 April",
+    "workAnniversary": 1,
+    "contribution": false
+  },
+  {
+    "fullName": "Sushila Jangid",
+    "email": "sushila@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "22 April",
+    "workAnniversary": 4,
+    "contribution": false
+  },
+  {
+    "fullName": "Abhinav Bharti",
+    "email": "abhinav.bharti@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "24 April",
+    "workAnniversary": 3,
+    "contribution": false
+  },
+  {
+    "fullName": "Umang Parnami",
+    "email": "umang.parnaami@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "09 April",
+    "workAnniversary": 1,
+    "contribution": false
+  },
+  {
+    "fullName": "Sonali Mathur",
+    "email": "sonali.mathur@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "10 April",
+    "workAnniversary": 2,
+    "contribution": false
+  },
+  {
+    "fullName": "Kunj Prakash Sharma",
+    "email": "kunjprakash.sharma@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "06 April",
+    "workAnniversary": 3,
+    "contribution": false
+  },
+  {
+    "fullName": "Ashutosh Rungta",
+    "email": "ashutosh.rungta@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "27 April",
+    "workAnniversary": 4,
+    "contribution": false
+  },
+  {
+    "fullName": "Sarthak Purohit",
+    "email": "sarthak.purohit@fiftyfivetech.io",
+    "location": "Gurgaon",
+    "workAnniversaryDate": "22 April",
+    "workAnniversary": 4,
+    "contribution": false
+  },
+  {
+    "fullName": "Rishikesh Mishra",
+    "email": "rishikesh.mishra@fiftyfivetech.io",
+    "location": "Work from Home",
+    "workAnniversaryDate": "08 April",
+    "workAnniversary": 2,
+    "contribution": false
+  },
+  {
+    "fullName": "Ayush Jain",
+    "email": "ayush.jain@fiftyfivetech.io",
+    "location": "Gurgaon",
+    "workAnniversaryDate": "27 April",
+    "workAnniversary": 1,
+    "contribution": false
+  },
+  {
+    "fullName": "Chirayu Jain",
+    "email": "chirayu.jain@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "24 April",
+    "workAnniversary": 1,
+    "contribution": false
+  },
+  {
+    "fullName": "Yash Sankhla",
+    "email": "yash.sankhla@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "06 April",
+    "workAnniversary": 3,
+    "contribution": false
+  },
+  {
+    "fullName": "Aanchal Jain",
+    "email": "aanchal.jain@fiftyfivetech.io",
+    "location": "Jaipur",
+    "workAnniversaryDate": "02 April",
+    "workAnniversary": 3,
+    "contribution": false
+  }
+]

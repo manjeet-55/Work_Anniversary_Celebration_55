@@ -1,12 +1,58 @@
 /* EmployeeCard.css */
 .employee-card {
-  position: relative;
-  margin: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  flex: 0 0 100px;
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.employee-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.details-container {
+  flex: 1;
+}
+
+.employee-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.anniversary-info {
+  margin-bottom: 15px;
 }
 
 .add-marble-btn {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-marble-btn:hover {
+  background-color: #45a049;
+}
+
+.employees-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }

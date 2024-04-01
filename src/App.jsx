@@ -4,7 +4,7 @@ import "./App.css";
 import GlassJar from "./components/GlassJar";
 import MarbleBall from "./components/MarbleBall";
 import CelebrationEffects from "./components/CelebrationEffects";
-import EmployeeCard from "./components/EmployeeCard";
+import Employees from "./components/Employees.jsx";
 
 function App() {
   const [marbleDropped, setMarbleDropped] = useState(false);
@@ -48,7 +48,7 @@ function App() {
           justifyContent: "center",
         }}
       >
-        <EmployeeCard onAddMarble={addMarble} />
+        <Employees />
       </div>
     </div>
   );

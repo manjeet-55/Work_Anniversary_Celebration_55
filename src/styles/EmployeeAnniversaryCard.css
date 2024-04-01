@@ -1,0 +1,41 @@
+/* EmployeeAnniversaryCard.css */
+.employee-anniversary-card {
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.location {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.add-marble-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-marble-btn:hover {
+  background-color: #45a049;
+}
