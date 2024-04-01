@@ -1,5 +1,3 @@
-// GlassJar.js
-import React from "react";
 import "../styles/GlassJar.css";
 
 function GlassJar() {
