@@ -1,7 +1,9 @@
 import "../styles/EmployeeCard.css";
+import { useEffect, useState } from "react";
 import employees from "../sampleData.json";
 import { EmployeeAnniversaryCard } from "./EmployeeAnniversaryCard.jsx";
 import { Box, Typography } from "@mui/material";
+import supabase from "../utils/SupabaseClient";
 export const Employees = ({ addMarble }) => {
   const handleAddMarble = (employee) => {
     addMarble();
@@ -26,8 +28,17 @@ export const Employees = ({ addMarble }) => {
     return monthNames[parseInt(month) - 1];
   };
   const currentMonth = getFullMonthName(currentDate.getMonth() + 1);
+  const [users, setUsers] = useState([]);
 
-  const filteredEmployees = employees.filter((employee) => {
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+  async function fetchUsers() {
+    const { data } = await supabase.from("Users").select("*");
+    setUsers(data);
+    console.log("Hello:", data);
+  }
+  const filteredEmployees = users.filter((employee) => {
     const anniversaryMonth = employee.workAnniversaryDate.split(" ")[1];
     return anniversaryMonth == currentMonth;
   });
@@ -55,7 +66,7 @@ export const Employees = ({ addMarble }) => {
         {filteredEmployees.map((employee) => (
           <EmployeeAnniversaryCard
             key={employee.email}
-            fullName={employee.fullName}
+            fullName={employee.fullname}
             location={employee.location}
             anniversaryDate={employee.workAnniversaryDate}
             onAddMarble={() => handleAddMarble(employee)}
