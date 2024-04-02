@@ -10,26 +10,12 @@ import {
 import { Home, Login, SignUp } from "./pages";
 import { Header } from "./components";
 function App() {
-  const [token, setToken] = useState(false);
-
-  if (token) {
-    sessionStorage.setItem("token", JSON.stringify(token));
-  }
-
-  useEffect(() => {
-    console.log("Inside console");
-    if (sessionStorage.getItem("token")) {
-      let data = JSON.parse(sessionStorage.getItem("token"));
-      // setToken(data);
-    }
-  }, [token]);
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<Login setToken={setToken} />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/' element={<ProtectedRoute token={token} />}>
+        <Route path='/' element={<ProtectedRoute />}>
           <Route path='' element={<Home />} />
         </Route>
       </Routes>
@@ -38,8 +24,8 @@ function App() {
 }
 
 // eslint-disable-next-line react/prop-types
-const ProtectedRoute = ({ token }) => {
-  if (token) {
+const ProtectedRoute = () => {
+  if (sessionStorage.getItem("token")) {
     return (
       <>
         <Header />
