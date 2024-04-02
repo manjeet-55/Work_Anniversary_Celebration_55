@@ -41,22 +41,94 @@ export const SignUp = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input placeholder='Fullname' name='fullName' onChange={handleChange} />
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          rowGap: "1rem",
+        }}
+      >
+        <input
+          placeholder='Fullname'
+          name='fullName'
+          onChange={handleChange}
+          style={{
+            width: "15rem",
+            height: "2.5rem",
+            padding: "0.6rem",
+            border: "1px solid #ccc",
+            borderRadius: "0.5rem",
+            fontSize: "0.9rem",
+          }}
+        />
 
-        <input placeholder='Email' name='email' onChange={handleChange} />
+        <input
+          placeholder='Email'
+          name='email'
+          onChange={handleChange}
+          style={{
+            width: "15rem",
+            height: "2.5rem",
+            padding: "0.6rem",
+            border: "1px solid #ccc",
+            borderRadius: "0.5rem",
+            fontSize: "0.9rem",
+          }}
+        />
 
         <input
           placeholder='Password'
           name='password'
           type='password'
           onChange={handleChange}
+          style={{
+            width: "15rem",
+            height: "2.5rem",
+            padding: "0.6rem",
+            border: "1px solid #ccc",
+            borderRadius: "0.5rem",
+            fontSize: "0.9rem",
+          }}
         />
 
-        <button type='submit'>Submit</button>
+        <button
+          type='submit'
+          style={{
+            width: "15rem",
+            height: "2.5rem",
+            backgroundColor: "#007bff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "0.5rem",
+            cursor: "pointer",
+            fontSize: "1.05rem",
+          }}
+        >
+          Submit
+        </button>
+
+        <p style={{ color: "#333" }}>
+          Already have an account?
+          <Link
+            to='/login'
+            style={{ color: "#007bff", textDecoration: "none" }}
+          >
+            LogIn
+          </Link>
+        </p>
       </form>
-      Already have an account?<Link to='/'>Login</Link>
     </div>
   );
 };
