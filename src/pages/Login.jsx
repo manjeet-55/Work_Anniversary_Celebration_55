@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import supabase from "../utils/SupabaseClient";
 
-export const Login = ({ setToken }) => {
+export const Login = () => {
   let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -30,7 +30,7 @@ export const Login = ({ setToken }) => {
 
       if (error) throw error;
       console.log(data);
-      setToken(data);
+      sessionStorage.setItem("token", JSON.stringify(data));
       navigate("/");
 
       //   alert('Check your email for verification link')
