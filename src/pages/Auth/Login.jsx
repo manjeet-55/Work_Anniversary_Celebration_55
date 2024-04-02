@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import supabase from "../utils/SupabaseClient";
-
+import supabase from "../../utils/SupabaseClient";
+import { AuthStyles } from "./Auth.styles";
 export const Login = () => {
+  const { mainContainerStyles, formStyles, inputStyles, buttonStyles } =
+    AuthStyles;
   let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -40,38 +42,14 @@ export const Login = () => {
   }
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          rowGap: "1rem",
-        }}
-      >
+    <div style={mainContainerStyles}>
+      <form onSubmit={handleSubmit} style={formStyles}>
         <input
           placeholder='Email'
           name='email'
           value={formData.email}
           onChange={handleChange}
-          style={{
-            width: "15rem",
-            height: "2.5rem",
-            padding: "0.6rem",
-            border: "1px solid #ccc",
-            borderRadius: "0.5rem",
-            fontSize: "0.9rem",
-          }}
+          style={inputStyles}
         />
 
         <input
@@ -80,29 +58,10 @@ export const Login = () => {
           type='password'
           value={formData.password}
           onChange={handleChange}
-          style={{
-            width: "15rem",
-            height: "2.5rem",
-            padding: "0.6rem",
-            border: "1px solid #ccc",
-            borderRadius: "0.5rem",
-            fontSize: "0.9rem",
-          }}
+          style={inputStyles}
         />
 
-        <button
-          type='submit'
-          style={{
-            width: "15rem",
-            height: "2.5rem",
-            backgroundColor: "#007bff",
-            color: "#fff",
-            border: "none",
-            borderRadius: "0.5rem",
-            cursor: "pointer",
-            fontSize: "1.05rem",
-          }}
-        >
+        <button type='submit' style={buttonStyles}>
           Submit
         </button>
         <p style={{ color: "#333" }}>

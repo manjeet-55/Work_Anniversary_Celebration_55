@@ -5,19 +5,19 @@ import {
   Employees,
   GlassJar,
   ProgressBar,
-} from "../components";
-import { currentProgressBarValue } from "../utils/constants";
+} from "../../components";
+import { currentProgressBarValue } from "../../utils/constants";
 export const Home = () => {
   let navigate = useNavigate();
-  const [marbleDropped, setMarbleDropped] = useState(false);
+  const [coinDropped, setCoinDropped] = useState(false);
   //will get the data from backend of previously contribution count
-  const [numberOfMarbles, setNumberOfMarbles] = useState(
+  const [numberOfContributions, setNumberOfContributions] = useState(
     currentProgressBarValue
   );
 
   const addMarble = () => {
-    setMarbleDropped(true);
-    setNumberOfMarbles((prev) => prev + 1);
+    setCoinDropped(true);
+    setNumberOfContributions((prev) => prev + 1);
   };
 
   function handleLogout() {
@@ -35,7 +35,7 @@ export const Home = () => {
         width: "100vw",
       }}
     >
-      {marbleDropped && <CelebrationEffects />}
+      {coinDropped && <CelebrationEffects />}
       <div
         style={{
           width: "50%",
@@ -46,10 +46,10 @@ export const Home = () => {
           rowGap: "1rem",
         }}
       >
-        <GlassJar numberOfMarbles={numberOfMarbles} />
+        <GlassJar numberOfContributions={numberOfContributions} />
         <ProgressBar
-          addProgress={marbleDropped}
-          currentProgress={numberOfMarbles}
+          addProgress={coinDropped}
+          currentProgress={numberOfContributions}
         />
       </div>
       <div

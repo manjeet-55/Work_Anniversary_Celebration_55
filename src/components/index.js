@@ -5,6 +5,7 @@ import { GlassJar } from "./GlassJar";
 import { MarbleBall } from "./MarbleBall";
 import { Header } from "./Header";
 import { ProgressBar } from "./ProgressBar";
+import { UserAnniversaryCard } from "./UserAnniversaryCard";
 export {
   CelebrationEffects,
   EmployeeAnniversaryCard,
@@ -13,4 +14,5 @@ export {
   MarbleBall,
   Header,
   ProgressBar,
+  UserAnniversaryCard,
 };

@@ -23,7 +23,6 @@ function App() {
   );
 }
 
-// eslint-disable-next-line react/prop-types
 const ProtectedRoute = () => {
   if (sessionStorage.getItem("token")) {
     return (

@@ -1,7 +1,7 @@
 import { MarbleBall } from "./MarbleBall";
 
-export const GlassJar = ({  numberOfMarbles }) => {
-  const marbles = Array.from({ length: numberOfMarbles });
+export const GlassJar = ({ numberOfContributions }) => {
+  const marbles = Array.from({ length: numberOfContributions });
   return (
     <div style={{ position: "relative" }}>
       <img src='src\assets\jar.webp' alt='' width={300} />
@@ -9,7 +9,7 @@ export const GlassJar = ({  numberOfMarbles }) => {
         <MarbleBall
           key={index}
           index={index}
-          totalMarbles={numberOfMarbles}
+          totalMarbles={numberOfContributions}
         />
       ))}
     </div>
@@ -20,8 +20,8 @@ export const GlassJar = ({  numberOfMarbles }) => {
 // import { motion } from "framer-motion";
 // import { MarbleBall } from "./MarbleBall";
 
-// export const GlassJar = ({ marbleDrop, numberOfMarbles }) => {
-//   const marbles = Array.from({ length: numberOfMarbles });
+// export const GlassJar = ({ marbleDrop, numberOfContributions }) => {
+//   const marbles = Array.from({ length: numberOfContributions });
 //   return (
 //     <motion.div
 //       style={{
@@ -60,7 +60,7 @@ export const GlassJar = ({  numberOfMarbles }) => {
 //           <MarbleBall
 //             key={index}
 //             index={index}
-//             totalMarbles={numberOfMarbles}
+//             totalMarbles={numberOfContributions}
 //             marbleDrop={marbleDrop}
 //           />
 //         ))}
