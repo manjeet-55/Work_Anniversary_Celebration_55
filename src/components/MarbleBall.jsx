@@ -35,11 +35,14 @@
 import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import "../styles/MarbleBall.css";
-import { marbelBallsInOneRow, marbelBallSize } from "../utils/constants";
+import {
+  marbelBallsInOneRow,
+  marbelBallSize,
+  turbulanceInBalls,
+} from "../utils/constants";
 
-export const MarbleBall = ({ index, totalMarbles, marbleDrop }) => {
+export const MarbleBall = ({ index, totalMarbles }) => {
   const spacing = 42;
-  const turbulence = 16;
   const controls = useAnimation();
 
   // const [position, setPosition] = useState({
@@ -52,28 +55,35 @@ export const MarbleBall = ({ index, totalMarbles, marbleDrop }) => {
     top:
       400 -
       Math.floor(index / marbelBallsInOneRow) * spacing +
-      Math.random() * turbulence -
-      turbulence / 2,
+      Math.random() * turbulanceInBalls -
+      turbulanceInBalls / 2,
     left:
       20 +
       (index % marbelBallsInOneRow) * spacing +
-      Math.random() * turbulence -
-      turbulence / 2,
+      Math.random() * turbulanceInBalls -
+      turbulanceInBalls / 2,
   });
 
-  const [animationStarted, setAnimationStarted] = useState(false);
-
   useEffect(() => {
-    if (marbleDrop && !animationStarted) {
-      controls.start({
-        y: [position.top - 400, 0],
-        transition: {
-          duration: 0.5,
-        },
-      });
-      setAnimationStarted(true);
-    }
-  }, [marbleDrop, controls, animationStarted, position.top]);
+    controls.start({
+      y: [position.top - window.innerHeight, 0],
+      transition: {
+        duration: 1.5,
+      },
+    });
+  }, [controls, position.top]);
+
+  // useEffect(() => {
+  //   if (!animationStarted) {
+  //     controls.start({
+  //       y: [position.top - window.innerHeight, 0],
+  //       transition: {
+  //         duration: 1.5,
+  //       },
+  //     });
+  //     setAnimationStarted(true);
+  //   }
+  // }, [ controls, animationStarted, position.top]);
 
   return (
     <motion.div

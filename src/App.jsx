@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { Home } from "./pages/Home";
 import Login from "./pages/Login";
+import Header from "./components/Header";
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ const ProtectedRoute = () => {
   if (true) {
     return (
       <>
+      <Header/>
         <Outlet />
       </>
     );

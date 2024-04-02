@@ -1,6 +1,6 @@
 import { MarbleBall } from "./MarbleBall";
 
-export const GlassJar = ({ marbleDrop, numberOfMarbles }) => {
+export const GlassJar = ({  numberOfMarbles }) => {
   const marbles = Array.from({ length: numberOfMarbles });
   return (
     <div style={{ position: "relative" }}>
@@ -10,7 +10,6 @@ export const GlassJar = ({ marbleDrop, numberOfMarbles }) => {
           key={index}
           index={index}
           totalMarbles={numberOfMarbles}
-          marbleDrop={marbleDrop}
         />
       ))}
     </div>

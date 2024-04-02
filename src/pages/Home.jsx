@@ -27,7 +27,6 @@ export const Home = () => {
         }}
       >
         <GlassJar
-          marbleDrop={marbleDropped}
           numberOfMarbles={numberOfMarbles}
         />
       </div>
