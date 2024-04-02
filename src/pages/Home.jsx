@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   CelebrationEffects,
   Employees,
@@ -6,6 +7,7 @@ import {
   ProgressBar,
 } from "../components";
 export const Home = () => {
+  let navigate = useNavigate();
   const [marbleDropped, setMarbleDropped] = useState(false);
   //will get the data from backend of previously contribution count
   const [numberOfMarbles, setNumberOfMarbles] = useState(10);
@@ -14,6 +16,12 @@ export const Home = () => {
     setMarbleDropped(true);
     setNumberOfMarbles((prev) => prev + 1);
   };
+
+  function handleLogout() {
+    console.log("btn");
+    sessionStorage.removeItem("token");
+    navigate("/login");
+  }
 
   return (
     <div

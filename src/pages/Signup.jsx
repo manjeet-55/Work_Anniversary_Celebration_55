@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import supabase from "../utils/SupabaseClient";
 
-export const Login = ({ setToken }) => {
-  let navigate = useNavigate();
-
+export const SignUp = () => {
   const [formData, setFormData] = useState({
+    fullName: "",
     email: "",
     password: "",
   });
+
+  console.log(formData);
 
   function handleChange(event) {
     setFormData((prevFormData) => {
@@ -23,17 +24,17 @@ export const Login = ({ setToken }) => {
     e.preventDefault();
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
+        options: {
+          data: {
+            full_name: formData.fullName,
+          },
+        },
       });
-
       if (error) throw error;
-      console.log(data);
-      setToken(data);
-      navigate("/");
-
-      //   alert('Check your email for verification link')
+      alert("Check your email for verification link");
     } catch (error) {
       alert(error);
     }
@@ -42,6 +43,8 @@ export const Login = ({ setToken }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <input placeholder='Fullname' name='fullName' onChange={handleChange} />
+
         <input placeholder='Email' name='email' onChange={handleChange} />
 
         <input
@@ -53,7 +56,7 @@ export const Login = ({ setToken }) => {
 
         <button type='submit'>Submit</button>
       </form>
-      Don't have an account? <Link to='/signup'>Sign Up</Link>
+      Already have an account?<Link to='/'>Login</Link>
     </div>
   );
 };
