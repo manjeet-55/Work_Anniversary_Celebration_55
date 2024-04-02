@@ -10,7 +10,8 @@ export const EmployeeAnniversaryCard = ({
     <Box
       sx={{
         borderRadius: "0.5rem",
-        backgroundColor: "#f7f7f7",
+        backgroundColor: "#f9f9f9",
+        // backgroundImage: "linear-gradient(to top, #E0FFFF, #FFFFFF)",
         padding: "1rem",
         display: "flex",
         flexDirection: "column",
@@ -34,7 +35,17 @@ export const EmployeeAnniversaryCard = ({
         }}
       >
         <Box>
-          <Avatar />
+          <Avatar
+            children={fullName?.trim().charAt(0).toUpperCase() || "-"}
+            sx={{
+              width: "2.5rem",
+              height: "2.5rem",
+              fontSize: "1.15rem",
+              backgroundColor: "#ECEAF9",
+              color: "#6653E8",
+              fontWeight: 500,
+            }}
+          />
         </Box>
         <Box>
           <h2>{fullName}</h2>
@@ -43,25 +54,6 @@ export const EmployeeAnniversaryCard = ({
       </Box>
       <Box>
         <p>Celebration on {anniversaryDate}</p>
-      </Box>
-      <Box>
-        <Button
-          sx={{
-            background: "#00B8FF",
-            color: "#fff",
-            "&.MuiButtonBase-root": {
-              minWidth: "auto",
-            },
-            "&:hover": {
-              background: "#00B8FF",
-              transform: "scale(1.04)",
-              transition: "0.3s ease-in-out",
-            },
-          }}
-          onClick={onAddMarble}
-        >
-          Contribute
-        </Button>
       </Box>
     </Box>
   );
