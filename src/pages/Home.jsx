@@ -6,11 +6,14 @@ import {
   GlassJar,
   ProgressBar,
 } from "../components";
+import { currentProgressBarValue } from "../utils/constants";
 export const Home = () => {
   let navigate = useNavigate();
   const [marbleDropped, setMarbleDropped] = useState(false);
   //will get the data from backend of previously contribution count
-  const [numberOfMarbles, setNumberOfMarbles] = useState(10);
+  const [numberOfMarbles, setNumberOfMarbles] = useState(
+    currentProgressBarValue
+  );
 
   const addMarble = () => {
     setMarbleDropped(true);
@@ -51,7 +54,7 @@ export const Home = () => {
       </div>
       <div
         style={{
-          width: "50%",
+          width: "45%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

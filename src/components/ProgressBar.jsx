@@ -19,8 +19,8 @@ export const ProgressBar = ({ addProgress, currentProgress }) => {
         position: "relative",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <span>CSR Contribution Progress</span>
+      <div style={{ display: "flex", justifyContent: "space-between", padding:'0.5rem 0' }}>
+        <span>Contribution Progress</span>
         <span>{`${Math.floor((progress / progressBarLimit) * 100)}%`}</span>
       </div>
       <div

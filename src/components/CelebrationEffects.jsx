@@ -44,7 +44,7 @@ export const CelebrationEffects = () => {
         <ReactConfetti
           width={dimension.width}
           height={dimension.height}
-          tweenDuration={5000}
+          tweenDuration={1000}
           run={true}
           opacity={opacity}
         />
