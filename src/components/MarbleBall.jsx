@@ -39,8 +39,14 @@ import { marbelBallsInOneRow, marbelBallSize } from "../utils/constants";
 
 export const MarbleBall = ({ index, totalMarbles, marbleDrop }) => {
   const spacing = 42;
-  const turbulence = 8;
+  const turbulence = 16;
   const controls = useAnimation();
+
+  // const [position, setPosition] = useState({
+  //   top:
+  //     400 - Math.floor(index / marbelBallsInOneRow) * spacing + Math.random(),
+  //   left: 20 + (index % marbelBallsInOneRow) * spacing + Math.random(),
+  // });
 
   const [position, setPosition] = useState({
     top:
