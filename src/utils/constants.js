@@ -1,4 +1,4 @@
 export const marbelBallsInOneRow = 6;
 export const marbelBallSize = 40;
-export const turbulanceInBalls = 16;
+export const turbulanceInBalls = 4;
 export const progressBarLimit = 20;

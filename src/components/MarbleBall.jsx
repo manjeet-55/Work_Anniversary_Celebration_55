@@ -40,6 +40,7 @@ import {
   marbelBallSize,
   turbulanceInBalls,
 } from "../utils/constants";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 export const MarbleBall = ({ index, totalMarbles }) => {
   const spacing = 42;
@@ -91,14 +92,25 @@ export const MarbleBall = ({ index, totalMarbles }) => {
         position: "absolute",
         top: position.top,
         left: position.left,
+
+
+
+        
         height: marbelBallSize,
         width: marbelBallSize,
         borderRadius: "50%",
         zIndex: 999,
         background: "radial-gradient(circle, #ff00ff, #ed16fa)",
-        boxShadow: "0px 3px 4px rgba(0, 0, 0, 0.2)",
       }}
       animate={controls}
-    ></motion.div>
+    >
+      <MonetizationOnIcon
+        sx={{
+          width: "100%",
+          height: "100%",
+          color: "#f3c623",
+        }}
+      />
+    </motion.div>
   );
 };
