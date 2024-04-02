@@ -1,0 +1,16 @@
+
+
+.progress-moved {
+  background-color: #f3c623;
+}
+
+@keyframes progress {
+  0% {
+    background: #f9bcca;
+  }
+
+  100% {
+    background: #f3c623;
+    box-shadow: 0 0 40px #f3c623;
+  }
+}

@@ -1,8 +1,14 @@
 import { useState } from "react";
-import { CelebrationEffects, Employees, GlassJar } from "../components";
+import {
+  CelebrationEffects,
+  Employees,
+  GlassJar,
+  ProgressBar,
+} from "../components";
 export const Home = () => {
   const [marbleDropped, setMarbleDropped] = useState(false);
-  const [numberOfMarbles, setNumberOfMarbles] = useState(50);
+  //will get the data from backend of previously contribution count
+  const [numberOfMarbles, setNumberOfMarbles] = useState(10);
 
   const addMarble = () => {
     setMarbleDropped(true);
@@ -23,11 +29,16 @@ export const Home = () => {
         style={{
           width: "50%",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
+          alignItems: "center",
+          rowGap: "1rem",
         }}
       >
-        <GlassJar
-          numberOfMarbles={numberOfMarbles}
+        <GlassJar numberOfMarbles={numberOfMarbles} />
+        <ProgressBar
+          addProgress={marbleDropped}
+          currentProgress={numberOfMarbles}
         />
       </div>
       <div

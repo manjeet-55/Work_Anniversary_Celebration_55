@@ -6,9 +6,8 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import { Home } from "./pages/Home";
-import Login from "./pages/Login";
-import Header from "./components/Header";
+import { Home, Login } from "./pages";
+import { Header } from "./components";
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +25,7 @@ const ProtectedRoute = () => {
   if (true) {
     return (
       <>
-      <Header/>
+        <Header />
         <Outlet />
       </>
     );
