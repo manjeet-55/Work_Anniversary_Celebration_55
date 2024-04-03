@@ -7,13 +7,22 @@ import { Close } from "@mui/icons-material";
 
 const BadgeModal = ({ showModal, setShowModal }) => {
   const [open, setOpen] = useState(showModal);
-  const handleDownload = () => {};
   const handleOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleDownload = () => {
+    const imageUrl = "src/assets/Ribbon.png"; // Replace this with the actual URL of your image
+    const link = document.createElement("a");
+    link.href = imageUrl;
+    link.download = "badge.png"; // You can set the filename here
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (

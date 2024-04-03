@@ -149,7 +149,9 @@ export const Employees = ({ addMarble }) => {
           </Box>
         </Box>
       </Box>
-      {showModal && <BadgeModal showModal={showModal} setShowModal={setShowModal}/>}
+      {showModal && (
+        <BadgeModal showModal={showModal} setShowModal={setShowModal} />
+      )}
     </>
   );
 };
