@@ -4,12 +4,14 @@ import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import supabase from "../utils/SupabaseClient";
 import { UserAnniversaryCard } from "./UserAnniversaryCard.jsx";
+// import BadgeModal from "../components/BadgeModal.jsx";
 import { getFullMonthName, getYearDifference } from "../utils/common.js";
 import { useCelebrationAppContext } from "../context";
 
 export const Employees = ({ addMarble }) => {
   const [audio] = useState(new Audio("src/assets/coin-drop-39914.mp3"));
   const [contributionMade, setContributionMade] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const {
     user,
@@ -88,6 +90,7 @@ export const Employees = ({ addMarble }) => {
         setTimeout(() => {
           audio.play();
         }, 1000);
+        setShowModal(true);
         setContributionMade(true);
         setTotalContributionsThisYear((prev) => prev + 1);
       }
@@ -99,51 +102,54 @@ export const Employees = ({ addMarble }) => {
     return anniversaryMonth == currentMonth;
   });
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        rowGap: "1rem",
-      }}
-    >
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-        {user && (
-          <UserAnniversaryCard
-            user={user}
-            handleContribution={handleAddMarble}
-            contributionMade={contributionMade}
-          />
-        )}
-      </Box>
-      <Box>
-        <Box>
-          <Typography
-            sx={{ fontSize: "1.5rem", fontWeight: 600, textAlign: "center" }}
-          >
-            Upcoming Work anniversaries in {getFullMonthName(currentMonth)}
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            maxHeight: "40vh",
-            overflowY: "scroll",
-            display: "flex",
-            flexWrap: "wrap",
-            padding: "1rem 1rem",
-            columnGap: "1rem",
-            rowGap: "2rem",
-          }}
-        >
-          {employeesAnniversaryThisMonth.map((employee) => (
-            <EmployeeAnniversaryCard
-              key={employee.email}
-              fullName={employee.fullname}
-              location={employee.location}
-              anniversaryDate={employee.joiningDate}
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          rowGap: "1rem",
+        }}
+      >
+        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+          {user && (
+            <UserAnniversaryCard
+              user={user}
+              handleContribution={handleAddMarble}
+              contributionMade={contributionMade}
             />
-          ))}
+          )}
+        </Box>
+        <Box>
+          <Box>
+            <Typography
+              sx={{ fontSize: "1.5rem", fontWeight: 600, textAlign: "center" }}
+            >
+              Upcoming Work anniversaries in {getFullMonthName(currentMonth)}
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              maxHeight: "40vh",
+              overflowY: "scroll",
+              display: "flex",
+              flexWrap: "wrap",
+              padding: "1rem 1rem",
+              columnGap: "1rem",
+              rowGap: "2rem",
+            }}
+          >
+            {employeesAnniversaryThisMonth.map((employee) => (
+              <EmployeeAnniversaryCard
+                key={employee.email}
+                fullName={employee.fullname}
+                location={employee.location}
+                anniversaryDate={employee.joiningDate}
+              />
+            ))}
+          </Box>
         </Box>
       </Box>
-    </Box>
+      {/* <BadgeModal showModal={showModal} /> */}
+    </>
   );
 };
