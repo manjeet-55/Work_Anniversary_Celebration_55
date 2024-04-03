@@ -4,14 +4,14 @@ import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import supabase from "../utils/SupabaseClient";
 import { UserAnniversaryCard } from "./UserAnniversaryCard.jsx";
-// import BadgeModal from "../components/BadgeModal.jsx";
+import BadgeModal from "../components/BadgeModal.jsx";
 import { getFullMonthName, getYearDifference } from "../utils/common.js";
 import { useCelebrationAppContext } from "../context";
 
 export const Employees = ({ addMarble }) => {
   const [audio] = useState(new Audio("src/assets/coin-drop-39914.mp3"));
   const [contributionMade, setContributionMade] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   const {
     user,
@@ -149,7 +149,7 @@ export const Employees = ({ addMarble }) => {
           </Box>
         </Box>
       </Box>
-      {/* <BadgeModal showModal={showModal} /> */}
+      {showModal && <BadgeModal showModal={showModal} setShowModal={setShowModal}/>}
     </>
   );
 };
