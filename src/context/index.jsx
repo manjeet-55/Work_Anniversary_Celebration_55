@@ -6,10 +6,20 @@ export const Provider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
+  const [totalContribution, setTotalContribution] = useState(0);
 
   return (
     <CelebrationAppContext.Provider
-      value={{user, setUser, users, setUsers, loading, setLoading }}
+      value={{
+        user,
+        setUser,
+        users,
+        setUsers,
+        loading,
+        setLoading,
+        totalContribution,
+        setTotalContribution,
+      }}
     >
       {children}
     </CelebrationAppContext.Provider>

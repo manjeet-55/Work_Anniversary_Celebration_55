@@ -4,22 +4,28 @@ import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import supabase from "../utils/SupabaseClient";
 import { UserAnniversaryCard } from "./UserAnniversaryCard.jsx";
-import { getFullMonthName } from "../utils/common.js";
+import { getFullMonthName, getYearDifference } from "../utils/common.js";
 import { useCelebrationAppContext } from "../context";
 
 export const Employees = ({ addMarble }) => {
   const [audio] = useState(new Audio("src/assets/coin-drop-39914.mp3"));
   const [contributionMade, setContributionMade] = useState(false);
 
-  const { user, setUser, users, setUsers, setLoading } =
-    useCelebrationAppContext();
+  const {
+    user,
+    setUser,
+    users,
+    setUsers,
+    totalContribution,
+    setTotalContribution,
+  } = useCelebrationAppContext();
 
   const userEmail = JSON.parse(sessionStorage.getItem("token")).user
     .user_metadata.email;
 
   const currentDate = new Date();
   const currentYear = new Date().getFullYear().toString();
-  const currentMonth = getFullMonthName(currentDate.getMonth() + 1);
+  const currentMonth = currentDate.getMonth() + 1;
 
   useEffect(() => {
     async function fetchData() {
@@ -32,13 +38,30 @@ export const Employees = ({ addMarble }) => {
     }
     fetchData();
   }, []);
-  
+
   useEffect(() => {
     setUser(
       users.filter((employee) => {
         return employee.email === userEmail;
       })[0]
     );
+
+    //logic to calculate the total contributed monetary value
+
+    let moneyContribution = 0;
+    users.map((employee) => {
+      const employeeWorkAnniversary = getYearDifference(
+        employee.joiningDate,
+        currentYear
+      );
+      if (employee?.contribution?.includes(currentYear)) {
+        if (employeeWorkAnniversary >= 1) {
+          moneyContribution =
+            moneyContribution + 500 + (employeeWorkAnniversary - 1) * 250;
+        }
+      }
+    });
+    setTotalContribution(moneyContribution);
   }, [users]);
 
   useEffect(() => {
@@ -68,10 +91,9 @@ export const Employees = ({ addMarble }) => {
   };
 
   const employeesAnniversaryThisMonth = users.filter((employee) => {
-    const anniversaryMonth = employee.workAnniversaryDate.split(" ")[1];
+    const anniversaryMonth = employee.joiningDate.split("-")[1];
     return anniversaryMonth == currentMonth;
   });
-
   return (
     <Box
       sx={{
@@ -94,7 +116,7 @@ export const Employees = ({ addMarble }) => {
           <Typography
             sx={{ fontSize: "1.5rem", fontWeight: 600, textAlign: "center" }}
           >
-            Upcoming Work anniversaries in {currentMonth}
+            Upcoming Work anniversaries in {getFullMonthName(currentMonth)}
           </Typography>
         </Box>
         <Box
@@ -113,7 +135,7 @@ export const Employees = ({ addMarble }) => {
               key={employee.email}
               fullName={employee.fullname}
               location={employee.location}
-              anniversaryDate={employee.workAnniversaryDate}
+              anniversaryDate={employee.joiningDate}
             />
           ))}
         </Box>

@@ -2,12 +2,14 @@ import "../styles/EmployeeAnniversaryCard.css";
 import { Avatar, Button, Box, Typography } from "@mui/material";
 import paperImage from "../assets/celebration.png";
 import { motion } from "framer-motion";
+import { getAnniversary } from "../utils/common";
 export const EmployeeAnniversaryCard = ({
   fullName,
   location,
   onAddMarble,
   anniversaryDate,
 }) => {
+  const workAnniversary = getAnniversary(anniversaryDate);
   return (
     <motion.div
       style={{
@@ -89,8 +91,10 @@ export const EmployeeAnniversaryCard = ({
                 // paddingBottom: "0.75rem",
               }}
             >
-              Work Anniversary -{" "}
-              <span style={{ color: "#000" }}>{anniversaryDate}</span>
+              Work Anniversary -
+              <span style={{ color: "#000" }}>
+                {workAnniversary}
+              </span>
             </Typography>
             <Typography
               sx={{

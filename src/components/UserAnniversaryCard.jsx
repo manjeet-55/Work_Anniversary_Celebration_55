@@ -1,12 +1,13 @@
 import React from "react";
 import { Box, Avatar, Button, Typography } from "@mui/material";
 import anniversaryGif from "../assets/confetti.gif";
-
+import { getAnniversary } from "../utils/common";
 export const UserAnniversaryCard = ({
   user,
   handleContribution,
   contributionMade,
 }) => {
+  const workAnniversary = getAnniversary(user?.joiningDate);
   return (
     <Box
       sx={{
@@ -75,7 +76,7 @@ export const UserAnniversaryCard = ({
         </Box>
         <Box>
           <p style={{ textAlign: "center" }}>
-            Your Work Anniversary celebration is on {user?.workAnniversaryDate}
+            Your Work Anniversary celebration is on {workAnniversary}
           </p>
         </Box>
         <Box>
