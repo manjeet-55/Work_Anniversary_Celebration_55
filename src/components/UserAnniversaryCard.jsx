@@ -11,12 +11,13 @@ export const UserAnniversaryCard = ({
     <Box
       sx={{
         borderRadius: "0.5rem",
-        backgroundColor: "#f9f9f9",
+        backgroundImage: "linear-gradient(to bottom, #f4f4f4, #e9e9e9)",
         padding: "1rem",
         display: "flex",
         flexDirection: "row",
         rowGap: "0.5rem",
         width: "100%",
+        height: "90%",
         transition: "0.3s ease",
         "&:hover": {
           boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",

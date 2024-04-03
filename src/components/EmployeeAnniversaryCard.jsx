@@ -1,6 +1,7 @@
 import "../styles/EmployeeAnniversaryCard.css";
 import { Avatar, Button, Box, Typography } from "@mui/material";
 import paperImage from "../assets/celebration.png";
+import { motion } from "framer-motion";
 export const EmployeeAnniversaryCard = ({
   fullName,
   location,
@@ -8,21 +9,22 @@ export const EmployeeAnniversaryCard = ({
   anniversaryDate,
 }) => {
   return (
-    <Box
-      sx={{
+    <motion.div
+      style={{
         borderRadius: "0.5rem",
-        backgroundColor: "#f9f9f9",
+        backgroundImage: `url(${paperImage})`,
+        backgroundSize: "cover",
         display: "flex",
         flexDirection: "row",
         rowGap: "0.5rem",
         width: "18rem",
         transition: "0.3s ease",
-        "&:hover": {
-          boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
-        },
+        scale: 1,
+        padding: "0.5rem",
       }}
+      whileHover={{ scale: 1.02 }}
     >
-      <Box>
+      {/* <Box>
         <img
           src={paperImage}
           alt='Anniversary GIF'
@@ -31,10 +33,18 @@ export const EmployeeAnniversaryCard = ({
             position: "relative",
             objectFit: "cover",
             width: "5rem",
+            borderBottomLeftRadius: "0.5rem",
           }}
         />
-      </Box>
-      <Box sx={{ width: "75%", padding: "1rem 0" }}>
+      </Box> */}
+      <Box
+        sx={{
+          width: "100%",
+          padding: "1rem 0",
+          backgroundImage: "linear-gradient(to right, #f4f4f4, #f2f2f2)",
+          borderRadius: "0.5rem",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -95,6 +105,6 @@ export const EmployeeAnniversaryCard = ({
           </Box>
         </Box>
       </Box>
-    </Box>
+    </motion.div>
   );
 };

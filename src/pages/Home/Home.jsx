@@ -7,6 +7,7 @@ import {
   ProgressBar,
 } from "../../components";
 import { currentProgressBarValue } from "../../utils/constants";
+
 export const Home = () => {
   let navigate = useNavigate();
   const [coinDropped, setCoinDropped] = useState(false);
@@ -14,7 +15,6 @@ export const Home = () => {
   const [numberOfContributions, setNumberOfContributions] = useState(
     currentProgressBarValue
   );
-
   const addMarble = () => {
     setCoinDropped(true);
     setNumberOfContributions((prev) => prev + 1);
@@ -33,6 +33,7 @@ export const Home = () => {
         alignItems: "center",
         height: "100vh",
         width: "100vw",
+        background: "#f9f9f9",
       }}
     >
       {coinDropped && <CelebrationEffects />}
@@ -54,7 +55,7 @@ export const Home = () => {
       </div>
       <div
         style={{
-          width: "45%",
+          width: "48%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

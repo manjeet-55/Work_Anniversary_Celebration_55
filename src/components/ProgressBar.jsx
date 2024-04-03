@@ -19,7 +19,13 @@ export const ProgressBar = ({ addProgress, currentProgress }) => {
         position: "relative",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between", padding:'0.5rem 0' }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "0.5rem 0",
+        }}
+      >
         <span>Contribution Progress</span>
         <span>{`${Math.floor((progress / progressBarLimit) * 100)}%`}</span>
       </div>
@@ -27,21 +33,23 @@ export const ProgressBar = ({ addProgress, currentProgress }) => {
         style={{
           borderRadius: "2rem",
           backgroundColor: "#1B1525",
-          border: "1px solid black",
+          backgroundImage: "linear-gradient(to right, #f0f0f0, #e9e9e9)",
+          // border: "1px solid grey",
+          boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 1px 0px",
         }}
       >
         <div
-          className='progress-moved'
+          // className='progress-moved'
           style={{
             height: "1.25rem",
             borderRadius: "2rem",
-            transition: "1s linear",
+            transition: "0.5s linear",
             transitionProperty: "width, background-color",
             width: `${(progress / progressBarLimit) * 100}%`,
-            backgroundColor: "#f3c623",
+            backgroundColor: "#6653E8",
             position: "relative",
             animation:
-              progress < progressBarLimit && addProgress ? "progress 1s" : "",
+              progress < progressBarLimit && addProgress ? "progress 0.5s" : "",
           }}
         ></div>
       </div>

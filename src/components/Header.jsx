@@ -6,9 +6,9 @@ export const Header = () => {
       style={{
         position: "absolute",
         top: 5,
-        width: "100vw",
+        width: "95vw",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-end",
       }}
     >
       <div

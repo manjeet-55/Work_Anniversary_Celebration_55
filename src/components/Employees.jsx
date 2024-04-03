@@ -5,12 +5,14 @@ import { useEffect, useState } from "react";
 import supabase from "../utils/SupabaseClient";
 import { UserAnniversaryCard } from "./UserAnniversaryCard.jsx";
 import { getFullMonthName } from "../utils/common.js";
+import { useCelebrationAppContext } from "../context";
 
 export const Employees = ({ addMarble }) => {
   const [audio] = useState(new Audio("src/assets/coin-drop-39914.mp3"));
-  const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
   const [contributionMade, setContributionMade] = useState(false);
+
+  const { user, setUser, users, setUsers, setLoading } =
+    useCelebrationAppContext();
 
   const userEmail = JSON.parse(sessionStorage.getItem("token")).user
     .user_metadata.email;
@@ -20,14 +22,17 @@ export const Employees = ({ addMarble }) => {
   const currentMonth = getFullMonthName(currentDate.getMonth() + 1);
 
   useEffect(() => {
-    async function fetchUsers() {
-      const { data } = await supabase.from("Users").select("*");
-      setUsers(data);
-      // console.log("Hello:", data);
+    async function fetchData() {
+      try {
+        const { data } = await supabase.from("Users").select("*");
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching data:", error.message);
+      }
     }
-    fetchUsers();
+    fetchData();
   }, []);
-
+  
   useEffect(() => {
     setUser(
       users.filter((employee) => {
@@ -94,7 +99,7 @@ export const Employees = ({ addMarble }) => {
         </Box>
         <Box
           sx={{
-            maxHeight: "45vh",
+            maxHeight: "40vh",
             overflowY: "scroll",
             display: "flex",
             flexWrap: "wrap",

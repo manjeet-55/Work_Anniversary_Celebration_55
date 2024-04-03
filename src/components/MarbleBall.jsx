@@ -7,9 +7,9 @@ import {
   turbulanceInBalls,
 } from "../utils/constants";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
-
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 export const MarbleBall = ({ index, totalMarbles }) => {
-  const spacing = marbelBallSize +2;
+  const spacing = marbelBallSize + 2;
   const controls = useAnimation();
 
   const [position, setPosition] = useState({
@@ -39,7 +39,7 @@ export const MarbleBall = ({ index, totalMarbles }) => {
       style={{
         position: "absolute",
         top: position.top,
-        left: position.left,        
+        left: position.left,
         height: marbelBallSize,
         width: marbelBallSize,
         borderRadius: "50%",

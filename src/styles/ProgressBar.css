@@ -6,11 +6,11 @@
 
 @keyframes progress {
   0% {
-    background: #f9bcca;
+    background: #6653E8;
   }
 
   100% {
-    background: #f3c623;
-    box-shadow: 0 0 40px #f3c623;
+    background: #6653E8;
+    box-shadow: 0 0 20px #6653E8;
   }
 }
