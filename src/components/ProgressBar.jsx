@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { progressBarLimit } from "../utils/constants";
+// import { progressBarLimit } from "../utils/constants";
 import "../styles/ProgressBar.css";
+import { useCelebrationAppContext } from "../context";
 
-export const ProgressBar = ({ addProgress, currentProgress }) => {
-  const [progress, setProgress] = useState(currentProgress);
+export const ProgressBar = ({ addProgress }) => {
+  const { users, totalContributionsThisYear } = useCelebrationAppContext();
+
+  const [change, setChange] = useState(totalContributionsThisYear);
+  useEffect(() => {
+    setChange(totalContributionsThisYear / users.length);
+  }, [totalContributionsThisYear, users]);
 
   useEffect(() => {
-    if (progress < progressBarLimit && addProgress) {
-      setProgress((prev) => prev + 1);
+    if (totalContributionsThisYear < users.length && addProgress) {
+      setChange(totalContributionsThisYear / users.length);
     }
-  }, [addProgress, currentProgress]);
-
+  }, [addProgress, totalContributionsThisYear, change]);
   return (
     <div
       style={{
@@ -27,7 +32,7 @@ export const ProgressBar = ({ addProgress, currentProgress }) => {
         }}
       >
         <span>Contribution Progress</span>
-        <span>{`${Math.floor((progress / progressBarLimit) * 100)}%`}</span>
+        <span>{`${Math.ceil(change * 100)}%`}</span>
       </div>
       <div
         style={{
@@ -45,11 +50,10 @@ export const ProgressBar = ({ addProgress, currentProgress }) => {
             borderRadius: "2rem",
             transition: "0.5s linear",
             transitionProperty: "width, background-color",
-            width: `${(progress / progressBarLimit) * 100}%`,
+            width: `${change * 100 + 2}%`,
             backgroundColor: "#6653E8",
             position: "relative",
-            animation:
-              progress < progressBarLimit && addProgress ? "progress 0.5s" : "",
+            animation: change && addProgress ? "progress 0.5s" : "",
           }}
         ></div>
       </div>

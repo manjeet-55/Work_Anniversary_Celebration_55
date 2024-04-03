@@ -16,8 +16,8 @@ export const Employees = ({ addMarble }) => {
     setUser,
     users,
     setUsers,
-    totalContribution,
     setTotalContribution,
+    setTotalContributionsThisYear,
   } = useCelebrationAppContext();
 
   const userEmail = JSON.parse(sessionStorage.getItem("token")).user
@@ -49,12 +49,14 @@ export const Employees = ({ addMarble }) => {
     //logic to calculate the total contributed monetary value
 
     let moneyContribution = 0;
+    let totalContributionsThisYear = 0;
     users.map((employee) => {
       const employeeWorkAnniversary = getYearDifference(
         employee.joiningDate,
         currentYear
       );
       if (employee?.contribution?.includes(currentYear)) {
+        totalContributionsThisYear++;
         if (employeeWorkAnniversary >= 1) {
           moneyContribution =
             moneyContribution + 500 + (employeeWorkAnniversary - 1) * 250;
@@ -62,6 +64,7 @@ export const Employees = ({ addMarble }) => {
       }
     });
     setTotalContribution(moneyContribution);
+    setTotalContributionsThisYear(totalContributionsThisYear);
   }, [users]);
 
   useEffect(() => {
@@ -86,6 +89,7 @@ export const Employees = ({ addMarble }) => {
           audio.play();
         }, 1000);
         setContributionMade(true);
+        setTotalContributionsThisYear((prev) => prev + 1);
       }
     }
   };

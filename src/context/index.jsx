@@ -7,7 +7,8 @@ export const Provider = ({ children }) => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
   const [totalContribution, setTotalContribution] = useState(0);
-
+  const [totalContributionsThisYear, setTotalContributionsThisYear] =
+    useState(0);
   return (
     <CelebrationAppContext.Provider
       value={{
@@ -19,6 +20,8 @@ export const Provider = ({ children }) => {
         setLoading,
         totalContribution,
         setTotalContribution,
+        totalContributionsThisYear,
+        setTotalContributionsThisYear,
       }}
     >
       {children}
