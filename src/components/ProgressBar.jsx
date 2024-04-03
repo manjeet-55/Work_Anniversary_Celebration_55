@@ -4,7 +4,8 @@ import "../styles/ProgressBar.css";
 import { useCelebrationAppContext } from "../context";
 
 export const ProgressBar = ({ addProgress }) => {
-  const { users, totalContributionsThisYear } = useCelebrationAppContext();
+  const { users, totalContributionsThisYear, totalContribution } =
+    useCelebrationAppContext();
 
   const [change, setChange] = useState(totalContributionsThisYear);
   useEffect(() => {
@@ -32,7 +33,7 @@ export const ProgressBar = ({ addProgress }) => {
         }}
       >
         <span>Contribution Progress</span>
-        <span>{`${Math.ceil(change * 100)}%`}</span>
+        <span>₹{totalContribution}</span>
       </div>
       <div
         style={{
