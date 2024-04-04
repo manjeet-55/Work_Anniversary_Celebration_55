@@ -11,7 +11,7 @@ import { useCelebrationAppContext } from "../context";
 export const Employees = ({ addMarble }) => {
   const [audio] = useState(new Audio("src/assets/coin-drop-39914.mp3"));
   const [contributionMade, setContributionMade] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const {
     user,
@@ -41,6 +41,9 @@ export const Employees = ({ addMarble }) => {
     fetchData();
   }, []);
 
+  let moneyContribution = 0;
+  let totalContributionsThisYear = 0;
+
   useEffect(() => {
     setUser(
       users.filter((employee) => {
@@ -50,8 +53,6 @@ export const Employees = ({ addMarble }) => {
 
     //logic to calculate the total contributed monetary value
 
-    let moneyContribution = 0;
-    let totalContributionsThisYear = 0;
     users.map((employee) => {
       const employeeWorkAnniversary = getYearDifference(
         employee.joiningDate,
@@ -81,7 +82,7 @@ export const Employees = ({ addMarble }) => {
         const updatedContribution = [...contribution, currentYear];
         const { err } = await supabase
           .from("Users")
-          .update({ contribution: updatedContribution })
+          .update({ contribution: [] })
           .eq("id", user.id);
         if (err) {
           console.log(err);

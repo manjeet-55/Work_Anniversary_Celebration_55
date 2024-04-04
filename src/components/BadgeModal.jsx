@@ -66,7 +66,9 @@ const BadgeModal = ({ showModal, setShowModal }) => {
                 fontSize: "1.75rem",
                 cursor: "pointer",
               }}
-              onClick={() => setShowModal((prev) => !prev)}
+              onClick={() => {
+                setShowModal((prev) => !prev);
+              }}
             />
           </Box>
 

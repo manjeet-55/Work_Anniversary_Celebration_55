@@ -4,7 +4,17 @@ export const GlassJar = ({ numberOfContributions }) => {
   const marbles = Array.from({ length: numberOfContributions });
   return (
     <div style={{ position: "relative" }}>
-      <img src='src\assets\jar.webp' alt='' width={300} />
+      <img
+        src='src\assets\3d-cash-money.jpg'
+        alt=''
+        width={500}
+        style={{
+          zIndex: "1",
+          position: "relative",
+          borderRadius: "5rem",
+        }}
+      />
+      {/* <img src='src\assets\jar.webp' alt='' width={300} /> */}
       {marbles.map((_, index) => (
         <MarbleBall
           key={index}

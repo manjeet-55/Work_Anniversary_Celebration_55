@@ -33,7 +33,8 @@ export const Home = () => {
         alignItems: "center",
         height: "100vh",
         width: "100vw",
-        background: "#f9f9f9",
+        // background: "#f9f9f9",
+        backgroundColor: "#EDF9FF",
       }}
     >
       {coinDropped && <CelebrationEffects />}
