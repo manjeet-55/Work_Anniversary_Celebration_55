@@ -7,7 +7,7 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import { Home, Login, SignUp } from "./pages";
+import { Home, Invite, Login, SignUp } from "./pages";
 import { Header } from "./components";
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/invite' element={<Invite />} />
         <Route path='/' element={<ProtectedRoute />}>
           <Route path='' element={<Home />} />
         </Route>

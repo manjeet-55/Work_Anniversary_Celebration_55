@@ -11,7 +11,7 @@ import { useCelebrationAppContext } from "../context";
 export const Employees = ({ addMarble }) => {
   const [audio] = useState(new Audio("src/assets/coin-drop-39914.mp3"));
   const [contributionMade, setContributionMade] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const {
     user,
@@ -89,11 +89,28 @@ export const Employees = ({ addMarble }) => {
         addMarble();
         setTimeout(() => {
           audio.play();
+          setShowModal(true);
         }, 1000);
-        setShowModal(true);
         setContributionMade(true);
         setTotalContributionsThisYear((prev) => prev + 1);
       }
+    } else {
+      const contribution = user.contribution;
+      const currentYear = new Date().getFullYear().toString();
+      const updatedContribution = [...contribution, currentYear];
+      console.log("Before: ", updatedContribution);
+      const indexToRemove = updatedContribution.indexOf(currentYear);
+      if (indexToRemove !== -1) {
+        console.log(indexToRemove);
+        updatedContribution.splice(indexToRemove, 1);
+      }
+      console.log("After: ", updatedContribution);
+      const { error } = await supabase
+        .from("Users")
+        .update({ contribution: updatedContribution })
+        .eq("id", user.id);
+      setContributionMade(false);
+      setTotalContributionsThisYear((prev) => prev - 1);
     }
   };
 
