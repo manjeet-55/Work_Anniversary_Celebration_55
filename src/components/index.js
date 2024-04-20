@@ -3,9 +3,11 @@ import { EmployeeAnniversaryCard } from "./EmployeeAnniversaryCard";
 import { Employees } from "./Employees";
 import { GlassJar } from "./GlassJar";
 import { MarbleBall } from "./MarbleBall";
-import { Header } from "./Header";
+import  Header  from "./Header";
 import { ProgressBar } from "./ProgressBar";
 import { UserAnniversaryCard } from "./UserAnniversaryCard";
+import { HeroSection } from "./HeroSection";
+import ActivitySection from "./ActivitesSection";
 export {
   CelebrationEffects,
   EmployeeAnniversaryCard,
@@ -15,4 +17,6 @@ export {
   Header,
   ProgressBar,
   UserAnniversaryCard,
+  HeroSection,
+  ActivitySection,
 };

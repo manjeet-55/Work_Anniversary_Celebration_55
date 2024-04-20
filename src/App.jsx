@@ -8,7 +8,6 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Home, Login, SignUp } from "./pages";
-import { Header } from "./components";
 function App() {
   return (
     <BrowserRouter>
@@ -27,7 +26,6 @@ const ProtectedRoute = () => {
   if (sessionStorage.getItem("token")) {
     return (
       <>
-        <Header />
         <Outlet />
       </>
     );

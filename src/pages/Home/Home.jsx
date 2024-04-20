@@ -1,14 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  CelebrationEffects,
-  Employees,
-  GlassJar,
-  ProgressBar,
-} from "../../components";
+import { ActivitySection, Header, HeroSection } from "../../components";
 import { currentProgressBarValue } from "../../utils/constants";
 
-export const Home = () => {
+export const Home = ({ activitiesRef }) => {
+
   let navigate = useNavigate();
   const [coinDropped, setCoinDropped] = useState(false);
   //will get the data from backend of previously contribution count
@@ -26,44 +22,16 @@ export const Home = () => {
     navigate("/login");
   }
 
+  const ref = useRef(null);
+  const handleActivitiesClick = () => {
+    ref?.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        height: "100vh",
-        width: "100vw",
-        // background: "#f9f9f9",
-        backgroundColor: "#EDF9FF",
-      }}
-    >
-      {coinDropped && <CelebrationEffects />}
-      <div
-        style={{
-          width: "50%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          rowGap: "1rem",
-        }}
-      >
-        <GlassJar numberOfContributions={numberOfContributions} />
-        <ProgressBar
-          addProgress={coinDropped}
-          currentProgress={numberOfContributions}
-        />
-      </div>
-      <div
-        style={{
-          width: "48%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Employees addMarble={addMarble} />
-      </div>
-    </div>
+    <>
+      <Header handleActivitiesClick={handleActivitiesClick} />
+      <HeroSection />
+      <ActivitySection ref={ref} />
+    </>
   );
 };
