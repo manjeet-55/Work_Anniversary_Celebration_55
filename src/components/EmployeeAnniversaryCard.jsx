@@ -4,13 +4,8 @@ import paperImage from "../assets/celebration.png";
 import { motion } from "framer-motion";
 import { getAnniversary } from "../utils/common";
 import { palette } from "../styles/theme";
-export const EmployeeAnniversaryCard = ({
-  fullName,
-  location,
-  onAddMarble,
-  anniversaryDate,
-}) => {
-  const workAnniversary = getAnniversary(anniversaryDate);
+export const EmployeeAnniversaryCard = ({joiningDate, fullname}) => {
+  const workAnniversary = getAnniversary(joiningDate);
   return (
     <motion.div
       style={{
@@ -27,24 +22,11 @@ export const EmployeeAnniversaryCard = ({
       }}
       whileHover={{ scale: 1.02 }}
     >
-      {/* <Box>
-        <img
-          src={paperImage}
-          alt='Anniversary GIF'
-          style={{
-            height: "10rem",
-            position: "relative",
-            objectFit: "cover",
-            width: "5rem",
-            borderBottomLeftRadius: "0.5rem",
-          }}
-        />
-      </Box> */}
       <Box
         sx={{
           width: "100%",
           padding: "1rem 0",
-          backgroundImage:palette.backgrounds.gradient,
+          backgroundImage: palette.backgrounds.gradient,
           borderRadius: "0.5rem",
         }}
       >
@@ -61,7 +43,7 @@ export const EmployeeAnniversaryCard = ({
         >
           <Box>
             <Avatar
-              children={fullName?.trim().charAt(0).toUpperCase() || "-"}
+              children={fullname?.trim().charAt(0).toUpperCase() || "-"}
               sx={{
                 width: "3rem",
                 height: "3rem",
@@ -81,7 +63,7 @@ export const EmployeeAnniversaryCard = ({
                 textAlign: "center",
               }}
             >
-              {fullName}
+              {fullname}
             </Typography>
 
             <Typography

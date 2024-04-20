@@ -2,9 +2,9 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ActivitySection, Header, HeroSection } from "../../components";
 import { currentProgressBarValue } from "../../utils/constants";
+import EmployeeAnniversaryCarousel from "../../components/EmployeesCarousel";
 
 export const Home = ({ activitiesRef }) => {
-
   let navigate = useNavigate();
   const [coinDropped, setCoinDropped] = useState(false);
   //will get the data from backend of previously contribution count
@@ -31,6 +31,8 @@ export const Home = ({ activitiesRef }) => {
     <>
       <Header handleActivitiesClick={handleActivitiesClick} />
       <HeroSection />
+
+      {/* <EmployeeAnniversaryCarousel /> */}
       <ActivitySection ref={ref} />
     </>
   );
