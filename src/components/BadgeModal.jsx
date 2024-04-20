@@ -4,7 +4,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Close } from "@mui/icons-material";
-
+import { palette } from "../styles/theme";
 const BadgeModal = ({ showModal, setShowModal }) => {
   const [open, setOpen] = useState(showModal);
   const handleOpen = () => {
@@ -43,7 +43,7 @@ const BadgeModal = ({ showModal, setShowModal }) => {
         <Box
           sx={{
             width: "25rem",
-            background: "#f9f9f9",
+            background: palette.white[900],
             p: 2,
             outline: "none",
           }}
@@ -59,7 +59,7 @@ const BadgeModal = ({ showModal, setShowModal }) => {
             </Typography>
             <Close
               sx={{
-                background: "#00B8FF",
+                background: palette.blue.primary,
                 borderRadius: "50%",
                 color: "white",
                 padding: "0.25rem",
@@ -82,15 +82,15 @@ const BadgeModal = ({ showModal, setShowModal }) => {
             variant='contained'
             color='primary'
             sx={{
-              background: "#00B8FF",
-              color: "#fff",
+              background: palette.blue.primary,
+              color: palette.white.primary,
               "&.MuiButtonBase-root": {
                 minWidth: "auto",
               },
               boxShadow: "none",
               borderRadius: "0.75rem",
               "&:hover": {
-                background: "#00B8FF",
+                background: palette.blue.primary,
                 transform: "scale(1.04)",
                 transition: "0.3s ease-in-out",
               },

@@ -3,6 +3,7 @@ import { Avatar, Button, Box, Typography } from "@mui/material";
 import paperImage from "../assets/celebration.png";
 import { motion } from "framer-motion";
 import { getAnniversary } from "../utils/common";
+import { palette } from "../styles/theme";
 export const EmployeeAnniversaryCard = ({
   fullName,
   location,
@@ -43,7 +44,7 @@ export const EmployeeAnniversaryCard = ({
         sx={{
           width: "100%",
           padding: "1rem 0",
-          backgroundImage: "linear-gradient(to right, #f4f4f4, #f2f2f2)",
+          backgroundImage:palette.backgrounds.gradient,
           borderRadius: "0.5rem",
         }}
       >
@@ -66,7 +67,7 @@ export const EmployeeAnniversaryCard = ({
                 height: "3rem",
                 fontSize: "1.35rem",
                 backgroundColor: "#ECEAF9",
-                color: "#6653E8",
+                color: palette.purple.primary,
                 fontWeight: 500,
               }}
             />
@@ -92,15 +93,13 @@ export const EmployeeAnniversaryCard = ({
               }}
             >
               Work Anniversary -
-              <span style={{ color: "#000" }}>
-                {workAnniversary}
-              </span>
+              <span style={{ color: "#000" }}>{workAnniversary}</span>
             </Typography>
             <Typography
               sx={{
                 fontWeight: 600,
                 fontSize: "1rem",
-                color: "#4caf50",
+                color: palette.green.primary,
                 textAlign: "center",
               }}
             >
