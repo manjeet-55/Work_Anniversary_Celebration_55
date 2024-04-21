@@ -4,11 +4,12 @@ import { Dialog, DialogContent, CircularProgress } from "@mui/material";
 import JarAnimationGIF from "../assets/donation_jar.mp4";
 import { CelebrationEffects } from "./CelebrationEffects";
 const ContributionDialog = ({ open, handleClose }) => {
-  const [audio] = useState(new Audio("src/assets/Confetti_Sound.mp3"));
+  //   const [audio] = useState(new Audio("src/assets/Confetti_Sound.mp3"));
+  const [audio] = useState(new Audio("src/assets/confettiWithCheerUp.mp3"));
 
   setTimeout(() => {
     audio.play();
-  }, 500);
+  }, 3000);
 
   return (
     <Dialog
@@ -24,7 +25,7 @@ const ContributionDialog = ({ open, handleClose }) => {
     >
       <DialogContent sx={{}}>
         {/* Render the GIF */}
-        <video autoPlay loop style={{ width: "100%" }}>
+        <video autoPlay style={{ width: "100%" }}>
           <source src={JarAnimationGIF} type='video/mp4' />
           Your browser does not support the video tag.
         </video>

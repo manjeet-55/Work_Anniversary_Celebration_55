@@ -4,17 +4,27 @@ import HeroImage from "../../assets/landingPageImage2.png";
 import "../../../src/index.css";
 import { palette } from "../../styles/theme";
 import ContributionDialog from "../ContributionDialog";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CelebrationEffects } from "../CelebrationEffects";
 export const HeroSection = () => {
   const [contributionDialogOpen, setContributionDialogOpen] = useState(false);
+  const [confetti, setConfetti] = useState(false);
+
+  useEffect(() => {
+    if (contributionDialogOpen) {
+      const timeOut = setTimeout(() => {
+        setConfetti(true);
+      }, 3000);
+      return () => clearInterval(timeOut);
+    }
+  }, [contributionDialogOpen]);
 
   const handleContribution = () => {
     setContributionDialogOpen(true);
   };
-  const handleClose = () =>{
-    setContributionDialogOpen(false)
-  }
+  const handleClose = () => {
+    setContributionDialogOpen(false);
+  };
   return (
     <>
       <Grid container sx={{ width: "100%", height: "100vh", background: "" }}>
@@ -128,8 +138,11 @@ export const HeroSection = () => {
           </div>
         </Grid>
       </Grid>
-      <ContributionDialog open={contributionDialogOpen} handleClose={handleClose}/>
-      {contributionDialogOpen && <CelebrationEffects />}
+      <ContributionDialog
+        open={contributionDialogOpen}
+        handleClose={handleClose}
+      />
+      {confetti && <CelebrationEffects />}
     </>
   );
 };
