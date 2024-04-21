@@ -8,7 +8,8 @@ import {
 } from "../../components";
 import { currentProgressBarValue } from "../../utils/constants";
 import EmployeeAnniversaryCarousel from "../../components/EmployeesCarousel";
-import { Container, Stack, Box, Typography } from "@mui/material";
+import { Container, Stack, Box, Typography, Grid } from "@mui/material";
+import { SocialActivityCard } from "../../components/socialActivityCard/SocialActivityCard";
 
 export const Home = ({ activitiesRef }) => {
   let navigate = useNavigate();
@@ -139,12 +140,12 @@ export const Home = ({ activitiesRef }) => {
             width: "100%",
             border: 0,
             borderRadius: "0.5rem",
-            marginBottom: "1rem",
+            marginBottom: "5rem",
             rowGap: "1rem",
           }}
         >
           <Typography
-            style={{
+            sx={{
               color: "#2f3141",
               fontSize: "2rem",
               fontWeight: 600,
@@ -163,12 +164,12 @@ export const Home = ({ activitiesRef }) => {
             width: "100%",
             border: 0,
             borderRadius: "0.5rem",
-            marginBottom: "1rem",
+            marginBottom: "2rem",
             rowGap: "1rem",
           }}
         >
           <Typography
-            style={{
+            sx={{
               color: "#2f3141",
               fontSize: "2rem",
               fontWeight: 600,
@@ -178,7 +179,11 @@ export const Home = ({ activitiesRef }) => {
           >
             Social activities
           </Typography>
-          <EmployeeAnniversaryCarousel />
+          <Grid container rowSpacing={2} sx={{ marginBottom: "2rem" }}>
+            <SocialActivityCard />
+            <SocialActivityCard />
+            <SocialActivityCard />
+          </Grid>
         </Stack>
       </Container>
     </>
