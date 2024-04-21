@@ -27,6 +27,6 @@ export const palette = {
     E: "#fefefe",
   },
   backgrounds: {
-    gradient: "linear-gradient(to right, #f4f4f4, #f2f2f2)",
+    gradient: "linear-gradient(to left, #f2f2f2, #f1f1f1)",
   },
 };

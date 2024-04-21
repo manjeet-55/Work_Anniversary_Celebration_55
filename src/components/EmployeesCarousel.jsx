@@ -5,6 +5,10 @@ import "slick-carousel/slick/slick-theme.css";
 import { EmployeeAnniversaryCard } from "./EmployeeAnniversaryCard";
 import { useEffect, useState } from "react";
 import supabase from "../utils/SupabaseClient";
+import { Box } from "@mui/material";
+import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
+import { palette } from "../styles/theme";
+
 const EmployeeAnniversaryCarousel = ({}) => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -26,25 +30,37 @@ const EmployeeAnniversaryCarousel = ({}) => {
     const anniversaryMonth = employee.joiningDate.split("-")[1];
     return anniversaryMonth == currentMonth;
   });
+
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, 
+    autoplaySpeed: 5000,
   };
+
   return (
-    <div style={{ width: "50%" , background:'pink'}}>
-      <Slider {...settings}>
+    <Box style={{ width: "75%", background: "", padding: "0 2rem" }}>
+      <Slider
+        {...settings}
+        style={{
+          padding: "0 0.5rem",
+          border: 0,
+          borderRadius: "0.5rem",
+        }}
+        prevArrow={<></>}
+        nextArrow={<></>}
+        swipeToSlide={true}
+      >
         {employeesAnniversaryThisMonth?.map((employee, index) => (
-          <div key={index}>
+          <Box key={index}>
             <EmployeeAnniversaryCard {...employee} />
-          </div>
+          </Box>
         ))}
       </Slider>
-    </div>
+    </Box>
   );
 };
 

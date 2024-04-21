@@ -1,145 +1,106 @@
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  IconButton,
-  Avatar,
-} from "@mui/material";
-import React, { forwardRef } from "react";
-import BrandLogo from "../assets/brand_logo.png";
+import { Stack, Box, Typography } from "@mui/material";
+import React, { forwardRef, useState } from "react";
+// import BrandLogo from "../assets/brand_logo.png";
 import { useNavigate } from "react-router-dom";
+import { Business, LocalActivity } from "@mui/icons-material";
+import { palette } from "../styles/theme";
+
 const Header = ({ handleActivitiesClick }) => {
   const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    // <div
-    //   style={{
-    //     position: "absolute",
-    //     top: 5,
-    //     width: "95vw",
-    //     display: "flex",
-    //     justifyContent: "flex-end",
-    //   }}
-    // >
-    //   <div
-    //     style={{
-    //       width: "35rem",
-    //       background: "#1B1525",
-    //       height: "50px",
-    //       borderRadius: "2rem",
-    //       position: "relative",
-    //       display: "flex",
-    //       justifyContent: "center",
-    //       alignItems: "center",
-    //       padding: "0.5rem 1rem",
-    //       columnGap: "0.5rem",
-    //     }}
-    //   >
-    //     <div
-    //       style={{
-    //         background: "linear-gradient(to top, #f9f9f9, #f5f5f5)",
-    //         borderRadius: "50%",
-    //         height: "38px",
-    //         width: "38px",
-    //         overflow: "hidden",
-    //         border: "1px solid lightgrey",
-    //       }}
-    //     >
-    //       <img
-    //         src='src\assets\brand_logo.png'
-    //         style={{
-    //           height: "100%",
-    //           width: "100%",
-    //           objectFit: "cover",
-    //         }}
-    //       />
-    //     </div>
-    //     <h1
-    //       style={{
-    //         color: "white",
-    //         fontWeight: 400,
-    //       }}
-    //     >
-    //       Work Anniversaries Celebration{" "}
-    //     </h1>
-    //   </div>
-    // </div>
-    <AppBar
+    <Stack
       sx={{
-        position: "sticky",
-        top: 0,
-        boxShadow: "none",
-        padding: "0 2rem",
-        background: "#f5f5f5",
+        background: "#202C33",
+        display: "flex",
+        position: "fixed",
+        top: "50%",
+        right: "0%",
+        transform: "translate(0%, -50%)",
+        // rowGap: "0.75rem",
+        border: 0,
+        borderRadius: "0.5rem 0 0 0.5rem",
+        width: isExpanded ? "10rem" : "3.5rem",
+        transition: "0.5s all ease-in-out",
+        padding: "0.5rem 0.25rem",
       }}
     >
-      <Toolbar
+      <Box
         sx={{
           display: "flex",
-          wdith: "100%",
-          justifyContent: "space-between",
+          justifyContent: "",
+          alignItems: "center",
+          columnGap: "0.5rem",
+          padding: "1rem 0.5rem",
+          cursor: "pointer",
+          borderRadius: "0.5rem",
+          "&:hover": {
+            background: "#211F1F",
+          },
+          border: 0,
         }}
+        onMouseEnter={() => setIsExpanded(true)}
+        onMouseLeave={() => setIsExpanded(false)}
       >
-        <Box
+        <Business
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            borderRadius: "5rem",
-            width: "4rem",
-            height: "4rem",
-            position: "relative",
-            cursor: "pointer",
+            color: "#FFF",
+            background: palette.purple.primary,
+            padding: "0.25rem",
+            fontSize: "2.25rem",
+            border: 0,
+            borderRadius: "0.25rem",
           }}
-          onClick={() => {
-            navigate("/");
+        />
+        <Typography
+          sx={{
+            color: "#FFF",
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 600,
           }}
         >
-          <img
-            src={BrandLogo}
-            alt='55 logo'
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              objectFit: "cover",
-              width: "100%",
-              height: "100%",
-            }}
-          />
-        </Box>
-        <Box
+          Company
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "",
+          alignItems: "center",
+          columnGap: "0.5rem",
+          padding: "1rem 0.5rem",
+          cursor: "pointer",
+          borderRadius: "0.5rem",
+          "&:hover": {
+            background: "#211F1F",
+          },
+        }}
+        onMouseEnter={() => setIsExpanded(true)}
+        onMouseLeave={() => setIsExpanded(false)}
+      >
+        <LocalActivity
           sx={{
-            display: "flex",
-            alignItems: "center",
-            columnGap: "2rem",
+            color: "#FFF",
+            color: "#FFF",
+            background: palette.purple.primary,
+            padding: "0.25rem",
+            fontSize: "2.25rem",
+            border: 0,
+            borderRadius: "0.25rem",
+          }}
+        />
+        <Typography
+          sx={{
+            color: "#FFF",
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 600,
           }}
         >
-          <a
-            style={{ color: "#000", fontWeight: 500, textDecoration: "none" }}
-            href='https://fiftyfivetech.io/'
-            target='_blank'
-          >
-            Company
-          </a>
-          <Typography
-            style={{ color: "#000", fontWeight: 500, cursor: "pointer" }}
-            onClick={handleActivitiesClick}
-          >
-            Activites
-          </Typography>
-
-          <IconButton
-            size='medium'
-            edge='end'
-            color='inherit'
-            aria-label='user profile'
-          >
-            <Avatar alt='User Profile' sx={{ width: "2rem", height: "2rem" }} />
-          </IconButton>
-        </Box>
-      </Toolbar>
-    </AppBar>
+          Activity
+        </Typography>
+      </Box>
+    </Stack>
   );
 };
 export default Header;

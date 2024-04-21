@@ -8,6 +8,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Home, Login, SignUp } from "./pages";
+
 function App() {
   return (
     <BrowserRouter>
@@ -24,11 +25,7 @@ function App() {
 
 const ProtectedRoute = () => {
   if (sessionStorage.getItem("token")) {
-    return (
-      <>
-        <Outlet />
-      </>
-    );
+    return <Outlet />;
   }
   return <Navigate to='/login' />;
 };

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.blob {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(45deg, #5533ff 0%, #d29aff 100%);
+  box-shadow: 0 0 200px 0 rgba(#ff0099, 0.7), 0 0 50px 0 rgba(#3023ae, 0.7);
+  animation: morpheus 16s linear infinite;
+}
+
+@keyframes morpheus {
+  0% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  20% {
+    border-radius: 60% 40% 40% 60% / 60% 25% 75% 40%;
+  }
+  40% {
+    border-radius: 70% 30% 65% 35% / 80% 45% 55% 20%;
+  }
+  60% {
+    border-radius: 30% 70% 70% 30% / 20% 30% 70% 80%;
+  }
+  80% {
+    border-radius: 40% 60% 40% 60% / 70% 55% 45% 30%;
+  }
+  100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}

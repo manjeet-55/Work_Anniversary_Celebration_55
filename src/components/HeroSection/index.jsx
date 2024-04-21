@@ -1,91 +1,116 @@
-import { CelebrationEffects } from "../../components";
-import { Box, Button } from "@mui/material";
+// import { CelebrationEffects } from "../../components";
+import { Button, Grid, Typography, Stack, Box } from "@mui/material";
+import HeroImage from "../../assets/landingPageImage2.png";
+import "../../../src/index.css";
+import { palette } from "../../styles/theme";
 
-import celebrationImage from "../../assets/landingPageImage.png";
-import EmployeeAnniversaryCarousel from "../EmployeesCarousel";
 export const HeroSection = () => {
   return (
-    <>
-  
-      <Box
-        style={{
-        //   display: "flex",
-        //   alignItems: "center",
-          height: "100vh",
-          width: "100vw",
-          background: "#f5f5f5",
+    <Grid container sx={{ width: "100%", height: "100vh", background: "" }}>
+      <Grid
+        item
+        lg={6}
+        md={6}
+        xs={12}
+        sx={{
+          // background: "skyblue",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "flex-start",
         }}
       >
-            <EmployeeAnniversaryCarousel />
-        <div
-          style={{
-            width: "50%",
+        <Stack
+          sx={{
+            // background: "lightgreen",
             display: "flex",
-            justifyContent: "center",
-            // alignItems: "center",
-            textWrap: "wrap",
-            paddingLeft: "5rem",
-            flexDirection: "column",
+            justifyContent: "space-between",
+            rowGap: "2rem",
+            padding: "6rem 3rem 0",
           }}
         >
-          <div style={{}}>
-            <p
-              style={{ color: "#2f3141", fontSize: "1.5rem", fontWeight: 600 }}
+          <Stack
+            sx={{
+              display: "flex",
+              rowGap: "0.5rem",
+              // background: "blue",
+              width: "100%",
+            }}
+          >
+            <Typography
+              style={{
+                color: "#2f3141",
+                fontSize: "3.5rem",
+                fontWeight: 600,
+                fontFamily: "Poppins, sans-serif",
+                wordBreak: "break-word",
+              }}
             >
-              Celebrate Work Anniversary{" "}
-            </p>
-            <p style={{ color: "#464654" }}>
-              contribute your celebration to social activites and be a part of
+              Celebrate work anniversary
+            </Typography>
+            <Typography
+              style={{
+                color: "#464654",
+                fontSize: "1rem",
+                fontWeight: 400,
+                fontFamily: "Poppins, sans-serif",
+                wordBreak: "break-word",
+              }}
+            >
+              Contribute your celebration to social activites and be a part of
               our new initiative
-            </p>
-          </div>
-          <div>
+            </Typography>
+          </Stack>
+          <Box sx={{ background: "", width: "100%" }}>
             <Button
               sx={{
-                backgroundImage: "linear-gradient(to right, #00B8FF, #007dff)",
-                color: "#fff",
-                "&.MuiButtonBase-root": {
-                  minWidth: "auto",
-                },
-                padding: "0.35rem 0.5rem",
-                borderRadius: "1.5rem",
+                fontWeight: 400,
+                fontSize: "1rem",
+                color: palette.purple.primary,
+                textAlign: "center",
+                fontFamily: "Poppins, sans-serif",
+                textTransform: "capitalize",
+                background: "transparent",
+                border: "1px solid",
+                borderColor: palette.purple.primary,
+                borderRadius: "0.5rem",
+                padding: "0.25rem 2rem",
+                transition: "all 0.3s ease-in-out",
                 "&:hover": {
-                  backgroundImage:
-                    "linear-gradient(to right, #00B8FF, #007dff)",
-                  transform: "scale(1.04)",
-                  transition: "0.3s ease-in-out",
+                  background: palette.purple.primary,
+                  color: "#FFF",
                 },
               }}
               // onClick={handleContribution}
             >
-              {"Contribute"}
+              Contribute
             </Button>
-          </div>
-        </div>
-        <Box
+          </Box>
+        </Stack>
+      </Grid>
+      <Grid
+        item
+        lg={6}
+        md={6}
+        xs={12}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          // background: "orange",
+        }}
+      >
+        <div
           style={{
-            width: "100%", // Adjust width as needed
-            height: "100%",
             display: "flex",
-            alignItems: "center",
             justifyContent: "center",
+            alignItems: "center",
+            padding: "8rem 0 0",
           }}
         >
-          <div
-            style={{
-              width: "50%", // Adjust width as needed
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundImage: `url(${celebrationImage})`, // Set the background image
-              backgroundSize: "contain", // Optional: Adjust background size as needed
-              backgroundPosition: "center", // Center the background image horizontally and vertically
-              backgroundRepeat: "no-repeat",
-            }}
-          ></div>
-        </Box>
-      </Box>
-    </>
+          <img src={HeroImage} alt='hero_image' style={{ width: "80%" }} />
+        </div>
+      </Grid>
+    </Grid>
   );
 };
