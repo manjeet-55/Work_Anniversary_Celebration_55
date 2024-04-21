@@ -28,10 +28,10 @@ export const CelebrationEffects = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setConfettiVisibility(false);
-    }, 6000);
+    }, 10000);
     const opacityTimer = setInterval(() => {
       setOpacity((prev) => prev - 0.1);
-    }, 800);
+    }, 1000);
 
     return () => {
       clearTimeout(timer);
@@ -47,6 +47,7 @@ export const CelebrationEffects = () => {
           tweenDuration={1000}
           run={true}
           opacity={opacity}
+          style={{ zIndex: 9999 }} 
         />
       )}
     </>

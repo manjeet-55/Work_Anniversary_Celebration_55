@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  ActivitySection,
-  EmployeeAnniversaryCard,
   Header,
   HeroSection,
 } from "../../components";
@@ -186,6 +184,7 @@ export const Home = ({ activitiesRef }) => {
           </Grid>
         </Stack>
       </Container>
+    
     </>
   );
 };
