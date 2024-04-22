@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Dialog, DialogContent, CircularProgress } from "@mui/material";
 // import JarAnimationGIF from "../assets/donation-jar-unscreen.gif";
 import JarAnimationGIF from "../assets/donation_jar.mp4";
-import { CelebrationEffects } from "./CelebrationEffects";
 const ContributionDialog = ({ open, handleClose }) => {
   //   const [audio] = useState(new Audio("src/assets/Confetti_Sound.mp3"));
   const [audio] = useState(new Audio("src/assets/confettiWithCheerUp.mp3"));
@@ -31,7 +30,8 @@ const ContributionDialog = ({ open, handleClose }) => {
         </video>
         {/* <img src={JarAnimationGIF} /> */}
         {/* Alternatively, you can use CircularProgress from MUI */}
-        {/* <CircularProgress /> */}
+        {/* <CircularProgress /> import { CelebrationEffects } from "./CelebrationEffects";
+         */}
       </DialogContent>
     </Dialog>
   );

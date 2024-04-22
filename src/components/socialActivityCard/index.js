@@ -1,2 +1,3 @@
 import { SocialActivityCard } from "./SocialActivityCard";
-export default SocialActivityCard;
+import SocialActivitySection from "./SocialActivitySection";
+export default SocialActivitySection;
