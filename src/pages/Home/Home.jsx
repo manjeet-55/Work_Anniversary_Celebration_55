@@ -6,8 +6,8 @@ import EmployeeAnniversaryCarousel from "../../components/EmployeesCarousel";
 import { Container, Stack, Box, Typography, Grid } from "@mui/material";
 import Waves from "../../components/Waves";
 import SocialActivitySection from "../../components/socialActivityCard";
-import { WorkAnniversariesSection } from "../../components/WorkAnniversariesSection";
-export const Home = ({ activitiesRef }) => {
+import WorkAnniversariesSection from "../../components/WorkAnniversariesSection";
+export const Home = () => {
   let navigate = useNavigate();
   const [coinDropped, setCoinDropped] = useState(false);
   //will get the data from backend of previously contribution count
@@ -29,6 +29,10 @@ export const Home = ({ activitiesRef }) => {
   const handleActivitiesClick = () => {
     ref?.current?.scrollIntoView({ behavior: "smooth" });
   };
+  const anniversaryRef = useRef(null);
+  const handleAnniversaryClick = () => {
+    anniversaryRef?.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -42,10 +46,13 @@ export const Home = ({ activitiesRef }) => {
           background: "#f5f5f5",
         }}
       >
-        <Header handleActivitiesClick={handleActivitiesClick} />
+        <Header
+          handleActivitiesClick={handleActivitiesClick}
+          handleAnniversaryClick={handleAnniversaryClick}
+        />
         <HeroSection />
-        <WorkAnniversariesSection />
-        <SocialActivitySection ref ={ref}/>
+        <WorkAnniversariesSection ref={anniversaryRef} />
+        <SocialActivitySection ref={ref} />
       </Container>
     </>
   );

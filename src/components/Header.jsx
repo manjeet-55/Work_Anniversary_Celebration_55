@@ -1,12 +1,11 @@
 import { Stack, Box, Typography } from "@mui/material";
 import React, { forwardRef, useState } from "react";
-// import BrandLogo from "../assets/brand_logo.png";
 import { useNavigate } from "react-router-dom";
-import { Business, LocalActivity } from "@mui/icons-material";
+import { Business, LocalActivity, Cake, Celebration } from "@mui/icons-material";
 import { palette } from "../styles/theme";
 
-const Header = ({ handleActivitiesClick }) => {
-  const navigate = useNavigate();
+const Header = ({ handleActivitiesClick, handleAnniversaryClick }) => {
+
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -21,7 +20,7 @@ const Header = ({ handleActivitiesClick }) => {
         // rowGap: "0.75rem",
         border: 0,
         borderRadius: "0.5rem 0 0 0.5rem",
-        width: isExpanded ? "10rem" : "3.5rem",
+        width: isExpanded ? "12rem" : "3.5rem",
         transition: "0.5s all ease-in-out",
         padding: "0.5rem 0.25rem",
       }}
@@ -42,8 +41,9 @@ const Header = ({ handleActivitiesClick }) => {
         }}
         onMouseEnter={() => setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
+        onClick={handleAnniversaryClick}
       >
-        <Business
+        <Cake
           sx={{
             color: "#FFF",
             background: palette.purple.primary,
@@ -60,7 +60,7 @@ const Header = ({ handleActivitiesClick }) => {
             fontWeight: 600,
           }}
         >
-          Company
+          Anniversaries
         </Typography>
       </Box>
       <Box
