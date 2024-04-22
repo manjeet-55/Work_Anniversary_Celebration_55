@@ -31,8 +31,7 @@ export const SocialActivityCard = () => {
               "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
           },
         }}
-        onMouseEnter={() => setIsBeingHovered(index)}
-        onMouseLeave={() => setIsBeingHovered(-1)}
+        className="social-activity-image-container"
       >
         <Box
           sx={{
@@ -47,6 +46,7 @@ export const SocialActivityCard = () => {
             src='https://fiftyfivetech.io/wp-content/uploads/2023/07/Responsible.png'
             alt=''
             style={{ width: "100%", border: "none", borderRadius: "1rem" }}
+            className="social-activity-image"
           />
         </Box>
 

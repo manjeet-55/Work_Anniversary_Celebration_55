@@ -1,8 +1,8 @@
 import { Grid, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { forwardRef } from "react";
 import { SocialActivityCard } from "./SocialActivityCard";
 
-const SocialActivitySection = () => {
+const SocialActivitySection = ({}, ref) => {
   return (
     <Stack
       sx={{
@@ -14,6 +14,7 @@ const SocialActivitySection = () => {
         marginBottom: "2rem",
         rowGap: "1rem",
       }}
+      ref ={ref}
     >
       <Typography
         sx={{
@@ -35,4 +36,4 @@ const SocialActivitySection = () => {
   );
 };
 
-export default SocialActivitySection;
+export default forwardRef(SocialActivitySection);

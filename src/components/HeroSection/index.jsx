@@ -68,7 +68,19 @@ export const HeroSection = () => {
                   lineHeight: "3.75rem",
                 }}
               >
-                Celebrate work anniversary
+                Celebrate work
+              </Typography>
+              <Typography
+                style={{
+                  fontSize: "3.5rem",
+                  fontWeight: 600,
+                  fontFamily: "Poppins, sans-serif",
+                  wordBreak: "break-word",
+                  lineHeight: "3.75rem",
+                }}
+                className="hero-text-animation"
+              >
+                anniversary
               </Typography>
               <Typography
                 style={{
@@ -138,10 +150,12 @@ export const HeroSection = () => {
           </div>
         </Grid>
       </Grid>
-      <ContributionDialog
-        open={contributionDialogOpen}
-        handleClose={handleClose}
-      />
+      {contributionDialogOpen && (
+        <ContributionDialog
+          open={contributionDialogOpen}
+          handleClose={handleClose}
+        />
+      )}
       {confetti && <CelebrationEffects />}
     </>
   );

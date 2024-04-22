@@ -6,6 +6,7 @@ import EmployeeAnniversaryCarousel from "../../components/EmployeesCarousel";
 import { Container, Stack, Box, Typography, Grid } from "@mui/material";
 import Waves from "../../components/Waves";
 import SocialActivitySection from "../../components/socialActivityCard";
+import { WorkAnniversariesSection } from "../../components/WorkAnniversariesSection";
 export const Home = ({ activitiesRef }) => {
   let navigate = useNavigate();
   const [coinDropped, setCoinDropped] = useState(false);
@@ -43,31 +44,8 @@ export const Home = ({ activitiesRef }) => {
       >
         <Header handleActivitiesClick={handleActivitiesClick} />
         <HeroSection />
-        <Stack
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            width: "100%",
-            border: 0,
-            borderRadius: "0.5rem",
-            marginBottom: "5rem",
-            rowGap: "1rem",
-          }}
-        >
-          <Typography
-            sx={{
-              color: "#2f3141",
-              fontSize: "2rem",
-              fontWeight: 600,
-              fontFamily: "Poppins, sans-serif",
-              wordBreak: "break-word",  
-            }}
-          >
-            Upcoming work anniversaries
-          </Typography>
-          <EmployeeAnniversaryCarousel />
-        </Stack>
-        <SocialActivitySection />
+        <WorkAnniversariesSection />
+        <SocialActivitySection ref ={ref}/>
       </Container>
     </>
   );

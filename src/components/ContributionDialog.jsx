@@ -6,9 +6,11 @@ const ContributionDialog = ({ open, handleClose }) => {
   //   const [audio] = useState(new Audio("src/assets/Confetti_Sound.mp3"));
   const [audio] = useState(new Audio("src/assets/confettiWithCheerUp.mp3"));
 
-  setTimeout(() => {
-    audio.play();
-  }, 3000);
+  useEffect(() => {
+    setTimeout(() => {
+      audio.play();
+    }, 3000);
+  }, []);
 
   return (
     <Dialog

@@ -78,6 +78,7 @@ const Header = ({ handleActivitiesClick }) => {
         }}
         onMouseEnter={() => setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
+        onClick={handleActivitiesClick}
       >
         <LocalActivity
           sx={{
