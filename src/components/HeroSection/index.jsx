@@ -1,21 +1,40 @@
-// import { CelebrationEffects } from "../../components";
-import { Button, Grid, Typography, Stack, Box } from "@mui/material";
+import {
+  Button,
+  Grid,
+  Typography,
+  Stack,
+  Box,
+  Dialog,
+  DialogContent,
+} from "@mui/material";
 import HeroImage from "../../assets/landingPageImage2.png";
 import "../../../src/index.css";
 import { palette } from "../../styles/theme";
 import ContributionDialog from "../ContributionDialog";
 import { useEffect, useState } from "react";
 import { CelebrationEffects } from "../CelebrationEffects";
+import blob from "../../assets/blob1.svg";
+import MovingBlob from "../Blob";
+import ContributionCard from "../ContributionCard";
+
 export const HeroSection = () => {
   const [contributionDialogOpen, setContributionDialogOpen] = useState(false);
   const [confetti, setConfetti] = useState(false);
+
+  const [showGrettingCard, setShowGrettingCard] = useState(false);
 
   useEffect(() => {
     if (contributionDialogOpen) {
       const timeOut = setTimeout(() => {
         setConfetti(true);
       }, 3000);
-      return () => clearInterval(timeOut);
+      const cardTimeOut = setTimeout(() => {
+        setShowGrettingCard(true);
+      }, 5000);
+      return () => {
+        clearInterval(timeOut);
+        clearInterval(cardTimeOut);
+      };
     }
   }, [contributionDialogOpen]);
 
@@ -78,7 +97,7 @@ export const HeroSection = () => {
                   wordBreak: "break-word",
                   lineHeight: "3.75rem",
                 }}
-                className="hero-text-animation"
+                className='hero-text-animation'
               >
                 anniversary
               </Typography>
@@ -125,6 +144,21 @@ export const HeroSection = () => {
               </Button>
             </Box>
           </Stack>
+          {/* <Box
+            sx={{
+              background: `url(${blob})`,
+              width: "20vw",
+              height: "20vh",
+              position: "absolute",
+              left: 5,
+              bottom: 5,
+              animation: "moveBlob 10s linear infinite",
+              zIndex: 1,
+              objectFit: "cover",
+              backgroundRepeat:'no-repeat'
+            }}
+          ></Box> */}
+          {/* <MovingBlob/> */}
         </Grid>
         <Grid
           item
@@ -150,12 +184,13 @@ export const HeroSection = () => {
           </div>
         </Grid>
       </Grid>
-      {contributionDialogOpen && (
+      {contributionDialogOpen && !showGrettingCard && (
         <ContributionDialog
           open={contributionDialogOpen}
           handleClose={handleClose}
         />
       )}
+      {showGrettingCard && <ContributionCard open={showGrettingCard} />}
       {confetti && <CelebrationEffects />}
     </>
   );

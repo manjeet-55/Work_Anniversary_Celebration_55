@@ -7,6 +7,8 @@ import { Container, Stack, Box, Typography, Grid } from "@mui/material";
 import Waves from "../../components/Waves";
 import SocialActivitySection from "../../components/socialActivityCard";
 import WorkAnniversariesSection from "../../components/WorkAnniversariesSection";
+import FooterWave from "../../assets/footer-wave.svg";
+import blob from "../../assets/blob1.svg";
 export const Home = () => {
   let navigate = useNavigate();
   const [coinDropped, setCoinDropped] = useState(false);
@@ -51,9 +53,39 @@ export const Home = () => {
           handleAnniversaryClick={handleAnniversaryClick}
         />
         <HeroSection />
+       
         <WorkAnniversariesSection ref={anniversaryRef} />
         <SocialActivitySection ref={ref} />
       </Container>
+      <Box
+        sx={{
+          display: "flex",
+          width: "100%",
+          background: `url(${FooterWave})`,
+          backgroundSize: "cover",
+          height: "20vh",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center bottom", // Adjusted position
+        }}
+      ></Box>
+      <Box
+        sx={{
+          position: "relative",
+          bottom: "1rem",
+          left: 0,
+        }}
+      >
+        <Typography
+          sx={{
+            position: "absolute",
+            bottom: "0",
+            right: "1rem",
+            color: "#1b2f78",
+          }}
+        >
+          Made by Manjeet
+        </Typography>
+      </Box>
     </>
   );
 };
