@@ -121,7 +121,7 @@ export const EmployeeAnniversaryCard = ({ joiningDate, fullname }) => {
                     fontFamily: "Poppins, sans-serif",
                   }}
                 >
-                  Work Anniversary -
+                  Work Anniversary -&nbsp;
                   <span style={{ color: "#000" }}>{workAnniversary}</span>
                 </Typography>
 

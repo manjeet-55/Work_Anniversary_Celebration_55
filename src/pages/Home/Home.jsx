@@ -53,7 +53,7 @@ export const Home = () => {
           handleAnniversaryClick={handleAnniversaryClick}
         />
         <HeroSection />
-       
+
         <WorkAnniversariesSection ref={anniversaryRef} />
         <SocialActivitySection ref={ref} />
       </Container>
@@ -68,24 +68,6 @@ export const Home = () => {
           backgroundPosition: "center bottom", // Adjusted position
         }}
       ></Box>
-      <Box
-        sx={{
-          position: "relative",
-          bottom: "1rem",
-          left: 0,
-        }}
-      >
-        <Typography
-          sx={{
-            position: "absolute",
-            bottom: "0",
-            right: "1rem",
-            color: "#1b2f78",
-          }}
-        >
-          Made by Manjeet
-        </Typography>
-      </Box>
     </>
   );
 };
