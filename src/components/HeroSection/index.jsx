@@ -13,7 +13,7 @@ import { palette } from "../../styles/theme";
 import ContributionDialog from "../ContributionDialog";
 import { useEffect, useState } from "react";
 import { CelebrationEffects } from "../CelebrationEffects";
-
+import ContributionCard from "../ContributionCard";
 export const HeroSection = () => {
   const [contributionDialogOpen, setContributionDialogOpen] = useState(false);
   const [confetti, setConfetti] = useState(false);
