@@ -13,9 +13,6 @@ import { palette } from "../../styles/theme";
 import ContributionDialog from "../ContributionDialog";
 import { useEffect, useState } from "react";
 import { CelebrationEffects } from "../CelebrationEffects";
-import blob from "../../assets/blob1.svg";
-import MovingBlob from "../Blob";
-import ContributionCard from "../ContributionCard";
 
 export const HeroSection = () => {
   const [contributionDialogOpen, setContributionDialogOpen] = useState(false);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Dialog, DialogContent, CircularProgress } from "@mui/material";
-import { animated, useSpring } from "react-spring";
 import JarAnimationGIF from "../assets/donation_jar.mp4";
 
 const ContributionDialog = ({ open, handleClose }) => {
