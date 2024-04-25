@@ -83,7 +83,6 @@ const Header = ({ handleActivitiesClick, handleAnniversaryClick }) => {
         <LocalActivity
           sx={{
             color: "#FFF",
-            color: "#FFF",
             background: palette.purple.primary,
             padding: "0.25rem",
             fontSize: "2.25rem",
