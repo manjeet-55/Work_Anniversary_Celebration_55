@@ -39,13 +39,18 @@ export const SocialActivityCard = ({ activity }) => {
             width: "100%",
             border: "none",
             borderRadius: "1rem",
-            maxHeight: "13rem",
+            maxHeight: "11.5rem",
           }}
         >
           <img
             src={activity.image}
             alt=''
-            style={{ width: "100%", border: "none", borderRadius: "1rem" }}
+            style={{
+              width: "100%",
+              border: "none",
+              borderRadius: "1rem",
+              maxHeight: "100%",
+            }}
             className='social-activity-image'
           />
         </Box>
@@ -70,6 +75,7 @@ export const SocialActivityCard = ({ activity }) => {
               fontFamily: "Poppins, sans-serif",
               wordBreak: "break-word",
               height: "4rem",
+              // minHeight:'4rem',
               overflowY: "scroll",
             }}
           >
@@ -81,7 +87,7 @@ export const SocialActivityCard = ({ activity }) => {
           sx={{
             display: "inline-flex",
             flexWrap: "wrap",
-            gap: "0.5rem 1rem",
+            gap: "0.5rem 0.5rem",
             marginBottom: "1rem",
           }}
         >
