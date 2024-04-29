@@ -7,7 +7,7 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import { Home, Login, SignUp } from "./pages";
+import { Admin, Home, Login, SignUp } from "./pages";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/' element={<ProtectedRoute />}>
           <Route path='' element={<Home />} />
+          <Route path='admin' element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>
