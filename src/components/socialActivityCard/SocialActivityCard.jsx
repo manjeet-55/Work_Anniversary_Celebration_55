@@ -1,8 +1,7 @@
 import { Box, Stack, Typography, Grid } from "@mui/material";
 import { palette } from "../../styles/theme";
 import ActivityBadge from "../activityBadge";
-
-export const SocialActivityCard = () => {
+export const SocialActivityCard = ({ activity }) => {
   return (
     <Grid
       item
@@ -31,7 +30,7 @@ export const SocialActivityCard = () => {
               "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
           },
         }}
-        className="social-activity-image-container"
+        className='social-activity-image-container'
       >
         <Box
           sx={{
@@ -40,13 +39,14 @@ export const SocialActivityCard = () => {
             width: "100%",
             border: "none",
             borderRadius: "1rem",
+            maxHeight: "13rem",
           }}
         >
           <img
-            src='https://fiftyfivetech.io/wp-content/uploads/2023/07/Responsible.png'
+            src={activity.image}
             alt=''
             style={{ width: "100%", border: "none", borderRadius: "1rem" }}
-            className="social-activity-image"
+            className='social-activity-image'
           />
         </Box>
 
@@ -60,7 +60,7 @@ export const SocialActivityCard = () => {
               wordBreak: "break-word",
             }}
           >
-            Tree plantation drive
+            {activity.title}
           </Typography>
           <Typography
             sx={{
@@ -69,10 +69,11 @@ export const SocialActivityCard = () => {
               fontWeight: 400,
               fontFamily: "Poppins, sans-serif",
               wordBreak: "break-word",
+              height: "4rem",
+              overflowY: "scroll",
             }}
           >
-            We at fiftyfive take care of our environment by organizing regular
-            tree plantation drives
+            {activity.description}
           </Typography>
         </Stack>
 
@@ -84,9 +85,9 @@ export const SocialActivityCard = () => {
             marginBottom: "1rem",
           }}
         >
-          <ActivityBadge badgeContent='plantation' />
-          <ActivityBadge badgeContent='plantation' />
-          <ActivityBadge badgeContent='plantation' />
+          {activity.badges.map((badgeContent, index) => (
+            <ActivityBadge badgeContent={badgeContent} key={index} />
+          ))}
         </Box>
       </Stack>
     </Grid>
