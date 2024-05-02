@@ -7,7 +7,7 @@ import { palette } from "../styles/theme";
 const Header = ({ handleActivitiesClick, handleAnniversaryClick }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const navigate = useNavigate();
-  const isAdmin = false;
+  const isAdmin = true;
 
   return (
     <Stack

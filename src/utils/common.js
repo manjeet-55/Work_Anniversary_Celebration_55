@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const getFullMonthName = (month) => {
   const monthNames = [
     "January",
@@ -25,8 +27,30 @@ export const getYearDifference = (dateString, currentYear) => {
 };
 
 export const getAnniversary = (anniversaryDate) => {
-  const workAnniversaryDate = anniversaryDate?.split("-")[2];
-  const workAnniversaryMonth = getFullMonthName(anniversaryDate?.split("-")[1]);
-  const workAnniversary = `${workAnniversaryDate} ${workAnniversaryMonth}`;
-  return workAnniversary
+  const date = moment(anniversaryDate, "MM/DD/YYYY");
+
+  const formattedDate = date.format("D MMMM");
+
+  return formattedDate;
+};
+
+export const calculateAnniversaryNumber = (anniversaryDate) => {
+  const date = moment(anniversaryDate, "MM/DD/YYYY");
+
+  const currentYear = moment().year();
+  const anniversaryYear = date.year();
+  const differenceYears = currentYear - anniversaryYear;
+
+  let message;
+  if (differenceYears === 0) {
+    message = "Celebrating anniversary this year!";
+  } else if (differenceYears > 0) {
+    message = `Will be celebrating ${differenceYears} year${
+      differenceYears > 1 ? "s" : ""
+    } anniversary`;
+  } else {
+    message = "Anniversary already passed!";
+  }
+
+  return message;
 };

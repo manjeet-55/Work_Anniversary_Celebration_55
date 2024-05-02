@@ -2,12 +2,13 @@ import "../styles/EmployeeAnniversaryCard.css";
 import { Avatar, Button, Box, Typography, Stack, Grid } from "@mui/material";
 import paperImage from "../assets/celebration.png";
 import { motion } from "framer-motion";
-import { getAnniversary } from "../utils/common";
+import { calculateAnniversaryNumber, getAnniversary } from "../utils/common";
 import { palette } from "../styles/theme";
 import HappyGirlImage from "../assets/happy-girl.png";
 
-export const EmployeeAnniversaryCard = ({ joiningDate, fullname }) => {
+export const EmployeeAnniversaryCard = ({ joiningDate, fullName }) => {
   const workAnniversary = getAnniversary(joiningDate);
+  const workAnniversaryMessage = calculateAnniversaryNumber(joiningDate);
   return (
     <motion.div
       style={{
@@ -63,7 +64,7 @@ export const EmployeeAnniversaryCard = ({ joiningDate, fullname }) => {
                 }}
               >
                 <Avatar
-                  children={fullname?.trim().charAt(0).toUpperCase() || "-"}
+                  children={fullName?.trim().charAt(0).toUpperCase() || "-"}
                   sx={{
                     width: "4rem",
                     height: "4rem",
@@ -82,7 +83,7 @@ export const EmployeeAnniversaryCard = ({ joiningDate, fullname }) => {
                     fontFamily: "Poppins, sans-serif",
                   }}
                 >
-                  {fullname}
+                  {fullName}
                 </Typography>
               </Stack>
 
@@ -91,7 +92,7 @@ export const EmployeeAnniversaryCard = ({ joiningDate, fullname }) => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  width: "50%",
+                  width: "70%",
                 }}
               >
                 <Typography
@@ -99,10 +100,12 @@ export const EmployeeAnniversaryCard = ({ joiningDate, fullname }) => {
                     fontWeight: 400,
                     fontSize: "1rem",
                     textAlign: "center",
+
+                    color: "#090909",
                     fontFamily: "Poppins, sans-serif",
                   }}
                 >
-                  Social Message
+                 {workAnniversaryMessage}
                 </Typography>
               </Box>
 
