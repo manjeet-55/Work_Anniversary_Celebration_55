@@ -6,15 +6,15 @@ import { EmployeeAnniversaryCard } from "./EmployeeAnniversaryCard";
 import { useEffect, useState } from "react";
 import supabase from "../utils/SupabaseClient";
 import { Box } from "@mui/material";
-import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
-import { palette } from "../styles/theme";
+
+import moment from "moment";
 
 const EmployeeAnniversaryCarousel = ({}) => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await supabase.from("Users").select("*");
+        const { data } = await supabase.from("Employees").select("*");
         setUsers(data);
       } catch (error) {
         console.error("Error fetching data:", error.message);
@@ -27,7 +27,9 @@ const EmployeeAnniversaryCarousel = ({}) => {
   const currentMonth = currentDate.getMonth() + 1;
 
   const employeesAnniversaryThisMonth = users?.filter((employee) => {
-    const anniversaryMonth = employee.joiningDate.split("-")[1];
+    const anniversaryMonth =
+      moment(employee.joiningDate, "MM/DD/YYYY").month() + 1;
+
     return anniversaryMonth == currentMonth;
   });
 

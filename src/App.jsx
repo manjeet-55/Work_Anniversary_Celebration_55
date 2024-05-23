@@ -39,6 +39,7 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/' element={<ProtectedRoute />}>
           <Route path='' element={<Home />} />
+          <Route path='admin' element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -17,7 +17,7 @@ export const ActivityBadge = ({ badgeContent }) => {
       <Typography
         sx={{
           color: "#FFF",
-          fontSize: "0.7rem",
+          fontSize: "0.75rem",
           fontWeight: 400,
           fontFamily: "Poppins, sans-serif",
           wordBreak: "break-word",
