@@ -7,7 +7,7 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
-import { Home, Login, SignUp } from "./pages";
+import { Admin, Home, Login, SignUp } from "./pages";
 import OneSignal from "react-onesignal";
 
 export const app_id = "9a37f401-19dd-4edc-afe7-a666b14c6ff6";
