@@ -14,6 +14,9 @@ import ContributionDialog from "../ContributionDialog";
 import { useEffect, useState } from "react";
 import { CelebrationEffects } from "../CelebrationEffects";
 import ContributionCard from "../ContributionCard";
+import { app_id, api_key } from "../../App";
+import axios from "axios";
+
 export const HeroSection = () => {
   const [contributionDialogOpen, setContributionDialogOpen] = useState(false);
   const [confetti, setConfetti] = useState(false);
@@ -41,6 +44,40 @@ export const HeroSection = () => {
   const handleClose = () => {
     setContributionDialogOpen(false);
   };
+
+  const sendNotification = async () => {
+    const url = `https://onesignal.com/api/v1/notifications?app_id=${app_id}`;
+    const data = {
+      included_segments: ["Subscribed Users"],
+      contents: {
+        en: "It's time to book your meal",
+      },
+      include_aliases: {
+        onesignal_id: ["2d4e9a8f-e53a-4e01-8764-3ad5bbb4cea9"],
+      },
+      target_channel: "push",
+    };
+
+    const headers = {
+      Authorization: `Basic ${api_key}`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      referrerPolicy: "no-referrer",
+      mode: "no-mode",
+      "Access-Control-Allow-Origin": "*",
+    };
+
+    try {
+      const response = await axios.post(url, data, { headers });
+      console.log("Notification sent successfully:", response);
+    } catch (error) {
+      console.error(
+        "Error sending notification:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
   return (
     <>
       <Grid container sx={{ width: "100%", height: "100vh", background: "" }}>
@@ -115,7 +152,14 @@ export const HeroSection = () => {
                 with those in need.
               </Typography>
             </Stack>
-            <Box sx={{ background: "", width: "100%" }}>
+            <Box
+              sx={{
+                background: "",
+                width: "100%",
+                display: "flex",
+                columnGap: "0.5rem",
+              }}
+            >
               <Button
                 sx={{
                   fontWeight: 400,
@@ -138,6 +182,29 @@ export const HeroSection = () => {
                 onClick={handleContribution}
               >
                 Contribute
+              </Button>
+              <Button
+                onClick={sendNotification}
+                sx={{
+                  fontWeight: 400,
+                  fontSize: "1rem",
+                  color: palette.purple.primary,
+                  textAlign: "center",
+                  fontFamily: "Poppins, sans-serif",
+                  textTransform: "capitalize",
+                  background: "transparent",
+                  border: "1px solid",
+                  borderColor: palette.purple.primary,
+                  borderRadius: "0.5rem",
+                  padding: "0.25rem 2rem",
+                  transition: "all 0.3s ease-in-out",
+                  "&:hover": {
+                    background: palette.purple.primary,
+                    color: "#FFF",
+                  },
+                }}
+              >
+                Send Notification
               </Button>
             </Box>
           </Stack>
