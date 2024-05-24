@@ -1,12 +1,4 @@
-import {
-  Button,
-  Grid,
-  Typography,
-  Stack,
-  Box,
-  Dialog,
-  DialogContent,
-} from "@mui/material";
+import { Button, Grid, Typography, Stack, Box } from "@mui/material";
 import HeroImage from "../../assets/landingPageImage2.png";
 import "../../../src/index.css";
 import { palette } from "../../styles/theme";
@@ -14,7 +6,7 @@ import ContributionDialog from "../ContributionDialog";
 import { useEffect, useState } from "react";
 import { CelebrationEffects } from "../CelebrationEffects";
 import ContributionCard from "../ContributionCard";
-import { app_id, api_key } from "../../App";
+// import { app_id, api_key } from "../../App";
 import axios from "axios";
 
 export const HeroSection = () => {
@@ -46,36 +38,10 @@ export const HeroSection = () => {
   };
 
   const sendNotification = async () => {
-    const url = `https://onesignal.com/api/v1/notifications?app_id=${app_id}`;
-    const data = {
-      included_segments: ["Subscribed Users"],
-      contents: {
-        en: "It's time to book your meal",
-      },
-      include_aliases: {
-        onesignal_id: ["2d4e9a8f-e53a-4e01-8764-3ad5bbb4cea9"],
-      },
-      target_channel: "push",
-    };
-
-    const headers = {
-      Authorization: `Basic ${api_key}`,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      referrerPolicy: "no-referrer",
-      mode: "no-mode",
-      "Access-Control-Allow-Origin": "*",
-    };
-
-    try {
-      const response = await axios.post(url, data, { headers });
-      console.log("Notification sent successfully:", response);
-    } catch (error) {
-      console.error(
-        "Error sending notification:",
-        error.response ? error.response.data : error.message
-      );
-    }
+    const response = await axios.get(
+      "https://notification-app-2.onrender.com/api/notification"
+    );
+    console.log("RES---->>>>", response);
   };
 
   return (
