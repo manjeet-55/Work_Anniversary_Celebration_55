@@ -6,13 +6,11 @@ import ContributionDialog from "../ContributionDialog";
 import { useEffect, useState } from "react";
 import { CelebrationEffects } from "../CelebrationEffects";
 import ContributionCard from "../ContributionCard";
-// import { app_id, api_key } from "../../App";
 import axios from "axios";
 
 export const HeroSection = () => {
   const [contributionDialogOpen, setContributionDialogOpen] = useState(false);
   const [confetti, setConfetti] = useState(false);
-
   const [showGrettingCard, setShowGrettingCard] = useState(false);
 
   useEffect(() => {
@@ -38,10 +36,7 @@ export const HeroSection = () => {
   };
 
   const sendNotification = async () => {
-    const response = await axios.get(
-      "https://notification-app-2.onrender.com/api/notification"
-    );
-    console.log("RES---->>>>", response);
+    await axios.get("https://notification-app-2.onrender.com/api/notification");
   };
 
   return (

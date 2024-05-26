@@ -11,7 +11,6 @@ import { Admin, Home, Login, SignUp } from "./pages";
 import OneSignal from "react-onesignal";
 
 export const app_id = "af11bec5-a1fb-4416-a259-cd9e4d16d626";
-export const api_key = "NjU5YTQxODQtN2E2ZS00MWIyLThjYWUtNWE2ZTAyNDMzMDMx";
 
 function App() {
   const initializeOneSignal = async () => {
