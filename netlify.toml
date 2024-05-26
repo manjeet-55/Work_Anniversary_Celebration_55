@@ -1,9 +1,4 @@
 [[redirects]]
-  from = "/OneSignalSDKWorker.js"
-  to = "/OneSignalSDKWorker.js"
-  status = 200
-
-[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
