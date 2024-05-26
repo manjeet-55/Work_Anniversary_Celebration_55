@@ -7,6 +7,11 @@
     <title>Work Anniversary Celebration</title>
   </head>
   <body>
+    <script type="application/json">
+      if (typeof navigator.serviceWorker !== "undefined") {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
