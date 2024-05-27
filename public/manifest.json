@@ -1,0 +1,36 @@
+{
+  "short_name": "55Celeb",
+  "name": "55Celeb",
+  "icons": [
+    {
+      "src": "55FeastLogoNew.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "55FeastLogoNew.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "55FeastLogoNew.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "55FeastLogoNew.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "Welcome to \"55Celeb\" !",
+  "display_override": ["standalone", "window-controls-overlay"],
+  "prefer_related_applications": false
+}
